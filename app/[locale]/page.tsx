@@ -10,6 +10,8 @@ import { Social } from "@/components/social"
 import { Newsletter } from "@/components/newsletter"
 import { Footer } from "@/components/footer-i18n"
 import { getDictionary } from "@/lib/dictionaries"
+import { toHomeProductCard } from "@/lib/home-products"
+import { getNewArrivals } from "@/lib/products"
 import type { Locale } from "@/lib/i18n"
 
 export default async function Home({ 
@@ -19,16 +21,19 @@ export default async function Home({
 }) {
   const { locale } = await params
   const dict = getDictionary(locale)
+  const newArrivals = getNewArrivals()
+    .slice(0, 8)
+    .map((product) => toHomeProductCard(product, "Nuevo"))
 
   return (
     <main className="min-h-screen">
       <Header dict={dict} locale={locale} />
       <Hero dict={dict} locale={locale} />
-      <Categories />
-      <BestSellers />
+      <Categories locale={locale} />
+      <BestSellers locale={locale} />
       <WhyBamtae />
-      <NewArrivals />
-      <Lifestyle />
+      <NewArrivals locale={locale} products={newArrivals} />
+      <Lifestyle locale={locale} />
       <Reviews />
       <Social />
       <Newsletter />

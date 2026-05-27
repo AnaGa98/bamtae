@@ -27,12 +27,12 @@ export function Header({ dict, locale }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navLinks = [
-    { label: dict.nav.newIn, href: `/${locale}/new-in` },
-    { label: dict.nav.bodys, href: `/${locale}/bodys` },
-    { label: dict.nav.sets, href: `/${locale}/sets` },
-    { label: dict.nav.leggings, href: `/${locale}/leggings` },
-    { label: dict.nav.bestSellers, href: `/${locale}/best-sellers` },
-    { label: dict.nav.sale, href: `/${locale}/sale` },
+    { label: "Novedades", href: `/${locale}/novedades` },
+    { label: "Bodys", href: `/${locale}/bodys` },
+    { label: "Conjuntos", href: `/${locale}/conjuntos` },
+    { label: "Vestidos", href: `/${locale}/vestidos` },
+    { label: "Blusas", href: `/${locale}/blusas` },
+    { label: "Mas Vendidos", href: `/${locale}/mas-vendidos` },
   ]
 
   return (

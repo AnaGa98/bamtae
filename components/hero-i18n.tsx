@@ -41,7 +41,7 @@ export function Hero({ dict, locale }: HeroProps) {
               <Link href={`/${locale}/bodys`}>{dict.hero.shopCollection}</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="px-8">
-              <Link href={`/${locale}/best-sellers`}>{dict.hero.shopBestSellers}</Link>
+              <Link href={`/${locale}/mas-vendidos`}>{dict.hero.shopBestSellers}</Link>
             </Button>
           </div>
         </div>

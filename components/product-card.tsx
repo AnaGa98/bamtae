@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { formatPriceCop } from "@/lib/products"
 
 interface ProductCardProps {
   id: string
@@ -8,7 +9,7 @@ interface ProductCardProps {
   price: number
   image: string
   colors: string[]
-  badge?: "Best Seller" | "New"
+  badge?: "Mas Vendido" | "Nuevo"
   href?: string
 }
 
@@ -28,11 +29,12 @@ export function ProductCard({
           src={image}
           alt={name}
           fill
+          loading="lazy"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
         {badge && (
           <span className={`absolute top-3 left-3 px-3 py-1 text-xs tracking-wide rounded-full ${
-            badge === "Best Seller" 
+            badge === "Mas Vendido" 
               ? "bg-primary text-primary-foreground" 
               : "bg-secondary text-secondary-foreground"
           }`}>
@@ -41,7 +43,7 @@ export function ProductCard({
         )}
         <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
           <Button className="w-full rounded-full" size="sm">
-            Quick Add
+            Ver producto
           </Button>
         </div>
       </Link>
@@ -49,17 +51,8 @@ export function ProductCard({
         <h3 className="font-medium text-foreground group-hover:text-primary transition-colors">
           {name}
         </h3>
-        <p className="text-muted-foreground">${price.toFixed(2)}</p>
-        <div className="flex gap-2">
-          {colors.map((color, index) => (
-            <button
-              key={index}
-              className="w-5 h-5 rounded-full border-2 border-border hover:border-primary transition-colors"
-              style={{ backgroundColor: color }}
-              aria-label={`Color option ${index + 1}`}
-            />
-          ))}
-        </div>
+        <p className="text-muted-foreground">${formatPriceCop(price)}</p>
+        <p className="text-xs text-muted-foreground">{colors.join(" · ")}</p>
       </div>
     </div>
   )

@@ -11,12 +11,12 @@ interface FooterProps {
 
 export function Footer({ dict, locale }: FooterProps) {
   const shopLinks = [
-    { label: dict.footer.shop.newIn, href: `/${locale}/new-in` },
-    { label: dict.footer.shop.bodys, href: `/${locale}/bodys` },
-    { label: dict.footer.shop.activewear, href: `/${locale}/activewear` },
-    { label: dict.footer.shop.sets, href: `/${locale}/sets` },
-    { label: dict.footer.shop.bestSellers, href: `/${locale}/best-sellers` },
-    { label: dict.footer.shop.sale, href: `/${locale}/sale` },
+    { label: "Novedades", href: `/${locale}/novedades` },
+    { label: "Bodys", href: `/${locale}/bodys` },
+    { label: "Conjuntos", href: `/${locale}/conjuntos` },
+    { label: "Vestidos", href: `/${locale}/vestidos` },
+    { label: "Blusas", href: `/${locale}/blusas` },
+    { label: "Mas Vendidos", href: `/${locale}/mas-vendidos` },
   ]
 
   const helpLinks = [
