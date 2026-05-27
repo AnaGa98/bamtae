@@ -1,0 +1,102 @@
+{
+  "store": {
+    "name": "BAMTAE",
+    "tagline": "Esenciales elevados para la mujer moderna",
+    "city": "Medellín",
+    "country": "Colombia",
+    "currency": "COP",
+    "whatsapp_principal": "+57 304 575 4727",
+    "whatsapp_principal_link": "573045754727",
+    "whatsapp_secundario": "+57 304 521 2822",
+    "whatsapp_secundario_link": "573045212822",
+    "instagram": "@bamtae",
+    "email": "Bamtae@gmail.com",
+    "shipping": {
+      "free_threshold": 200000,
+      "medellin_delivery_days": "1-2 días hábiles",
+      "national_delivery_days": "2-4 días hábiles",
+      "carriers": ["Servientrega", "Interrapidísimo"]
+    },
+    "payment_methods": {
+      "medellin": ["Contraentrega (efectivo)", "Transferencia (Nequi, Bancolombia)"],
+      "national": ["Transferencia (Nequi, Bancolombia)"]
+    },
+    "bank_accounts": {
+      "nequi": "304 575 4727",
+      "bancolombia_ahorros": "91262321083",
+      "titular": "Laura Galeano"
+    },
+    "address": {
+      "street": "Carrera 43B",
+      "neighborhood": "La Gabriela",
+      "city": "Bello",
+      "department": "Antioquia",
+      "country": "Colombia"
+    },
+    "social": {
+      "instagram": "@bamtae",
+      "instagram_url": "https://instagram.com/bamtae",
+      "tiktok": "@bamtae",
+      "tiktok_url": "https://tiktok.com/@bamtae"
+    }
+  },
+  "categories": [
+    { "slug": "novedades", "name": "Novedades", "description": "Las prendas más recientes de BAMTAE. Bodys, conjuntos y esenciales premium recién llegados, diseñados en Medellín para mujeres que buscan piezas únicas con fit escultural. Envíos a toda Colombia." },
+    { "slug": "bodys", "name": "Bodys", "description": "Bodys premium para mujer diseñados en Medellín. Cortes que esculpen tu silueta con telas suaves y favorecedoras. Bodys de manga larga, manga corta, sin mangas, escote pico, cuello alto y mesh. Envío a toda Colombia." },
+    { "slug": "conjuntos", "name": "Conjuntos", "description": "Conjuntos coordinados BAMTAE: sets de body + falda, body + short, top + pantalón. Looks listos para llevar, perfectos para salidas, eventos o el día a día. Diseñados en Medellín, envíos a toda Colombia." },
+    { "slug": "vestidos", "name": "Vestidos", "description": "Vestidos femeninos BAMTAE con cortes que realzan la figura. Telas premium, fit escultural y diseños versátiles para ocasiones especiales o casual elevado." },
+    { "slug": "blusas", "name": "Blusas", "description": "Blusas femeninas BAMTAE con cortes favorecedores. Telas suaves, escotes elegantes y diseños que combinan con todo tu clóset." },
+    { "slug": "mas-vendidos", "name": "Más Vendidos", "description": "Los favoritos de nuestras clientas. Las prendas que más mujeres en Colombia están eligiendo para sentirse seguras y elegantes." }
+  ],
+  "products": [
+    { "id": "venus", "name": "Venus", "category": "bodys", "subcategory": "body", "price": 75000, "compare_at_price": null, "description": "Body escultural de tirantes con detalle ruched que abraza tu silueta. Tela premium con caída elegante.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Beige","Vino"], "is_new": true, "is_best_seller": true, "is_on_sale": false, "in_stock": true, "images": ["/products/venus-1.jpg","/products/venus-2.jpg"], "tags": ["body","tirantes","ruched","escultural"] },
+    { "id": "star", "name": "Star", "category": "bodys", "subcategory": "body", "price": 55000, "compare_at_price": null, "description": "Body con manga corta, corte clásico y fit favorecedor. Tu esencial diario.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Blanco","Beige"], "is_new": false, "is_best_seller": true, "is_on_sale": false, "in_stock": true, "images": ["/products/star-1.jpg"], "tags": ["body","manga corta","básico"] },
+    { "id": "alma", "name": "Alma", "category": "bodys", "subcategory": "body", "price": 48000, "compare_at_price": null, "description": "Body básico con corte limpio y tela suave. Ideal para combinar con jeans o faldas.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Blanco"], "is_new": true, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/alma-1.jpg"], "tags": ["body","básico"] },
+    { "id": "siena", "name": "Siena", "category": "bodys", "subcategory": "body", "price": 60000, "compare_at_price": null, "description": "Body con detalles únicos y fit moldeador. Una pieza que destaca.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Café","Vino"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/siena-1.jpg"], "tags": ["body","moldeador"] },
+    { "id": "lia", "name": "Lía", "category": "bodys", "subcategory": "body", "price": 50000, "compare_at_price": null, "description": "Body con corte favorecedor y tela cómoda para todo el día.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Beige","Rosa"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/lia-1.jpg"], "tags": ["body"] },
+    { "id": "aura", "name": "Aura", "category": "bodys", "subcategory": "body", "price": 55000, "compare_at_price": null, "description": "Body con escote sofisticado que resalta tu cuello y hombros.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Blanco","Beige"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/aura-1.jpg"], "tags": ["body","escote"] },
+    { "id": "galaxy", "name": "Galaxy", "category": "bodys", "subcategory": "body", "price": 58000, "compare_at_price": null, "description": "Body de manga larga con fit ajustado y tela elástica. Elegante y versátil.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Café","Vino"], "is_new": false, "is_best_seller": true, "is_on_sale": false, "in_stock": true, "images": ["/products/galaxy-1.jpg"], "tags": ["body","manga larga"] },
+    { "id": "curve", "name": "Curve", "category": "bodys", "subcategory": "body", "price": 48000, "compare_at_price": null, "description": "Body strapless que abraza tus curvas. Perfecto para looks de noche.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Beige"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/curve-1.jpg"], "tags": ["body","strapless"] },
+    { "id": "rose", "name": "Rose", "category": "bodys", "subcategory": "body", "price": 48000, "compare_at_price": null, "description": "Body delicado con detalles femeninos. Suave al tacto y favorecedor.", "sizes": ["XS","S","M","L"], "colors": ["Rosa","Blanco","Negro"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/rose-1.jpg"], "tags": ["body","femenino"] },
+    { "id": "daisy", "name": "Daisy", "category": "bodys", "subcategory": "body", "price": 38000, "compare_at_price": null, "description": "Body básico al mejor precio. Calidad premium en tu esencial diario.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Blanco","Beige"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/daisy-1.jpg"], "tags": ["body","básico"] },
+    { "id": "bloom", "name": "Bloom", "category": "bodys", "subcategory": "body", "price": 55000, "compare_at_price": null, "description": "Body con detalles florales o textura especial. Una pieza que florece.", "sizes": ["XS","S","M","L"], "colors": ["Rosa","Beige","Negro"], "is_new": true, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/bloom-1.jpg"], "tags": ["body","femenino"] },
+    { "id": "nube", "name": "Nube", "category": "bodys", "subcategory": "body", "price": 48000, "compare_at_price": null, "description": "Body suave como una nube. Tela que se siente como segunda piel.", "sizes": ["XS","S","M","L"], "colors": ["Blanco","Beige","Gris"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/nube-1.jpg"], "tags": ["body","suave"] },
+    { "id": "mia", "name": "Mía", "category": "bodys", "subcategory": "body", "price": 50000, "compare_at_price": null, "description": "Body con personalidad. Corte favorecedor y diseño con carácter.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Vino","Beige"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/mia-1.jpg"], "tags": ["body"] },
+    { "id": "velvet", "name": "Velvet", "category": "vestidos", "subcategory": "vestido strapless", "price": 55000, "compare_at_price": null, "description": "Vestido strapless con caída fluida y fit ceñido. Perfecto para una cita o evento.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Vino","Beige"], "is_new": true, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/velvet-1.jpg"], "tags": ["vestido","strapless","evento"] },
+    { "id": "icon", "name": "Icon", "category": "bodys", "subcategory": "body", "price": 58000, "compare_at_price": null, "description": "Body cruzado con escote en V. Una pieza icónica para destacar.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Vino","Café"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/icon-1.jpg"], "tags": ["body","escote V","cruzado"] },
+    { "id": "honey", "name": "Honey", "category": "bodys", "subcategory": "body", "price": 45000, "compare_at_price": null, "description": "Body dulce y favorecedor. Tu nuevo básico premium.", "sizes": ["XS","S","M","L"], "colors": ["Beige","Negro","Vino"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/honey-1.jpg"], "tags": ["body"] },
+    { "id": "soft", "name": "Soft", "category": "bodys", "subcategory": "body manga", "price": 50000, "compare_at_price": null, "description": "Body de manga con fit suave y cómodo. Para el día a día con estilo.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Beige","Blanco"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/soft-1.jpg"], "tags": ["body","manga"] },
+    { "id": "flow", "name": "Flow", "category": "bodys", "subcategory": "body caído", "price": 48000, "compare_at_price": null, "description": "Body con caída fluida y diseño relajado. Comodidad con estilo.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Beige"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/flow-1.jpg"], "tags": ["body","caído"] },
+    { "id": "vibe", "name": "Vibe", "category": "blusas", "subcategory": "blusa pico", "price": 32000, "compare_at_price": null, "description": "Blusa con escote pico, corte favorecedor. Combínala con jeans o faldas.", "sizes": ["XS","S","M","L"], "colors": ["Blanco","Negro","Beige"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/vibe-1.jpg"], "tags": ["blusa","escote pico"] },
+    { "id": "amour", "name": "Amour", "category": "bodys", "subcategory": "body corazón", "price": 55000, "compare_at_price": null, "description": "Body con escote corazón. Romántico y favorecedor.", "sizes": ["XS","S","M","L"], "colors": ["Rojo","Negro","Vino"], "is_new": false, "is_best_seller": true, "is_on_sale": false, "in_stock": true, "images": ["/products/amour-1.jpg"], "tags": ["body","escote corazón","romántico"] },
+    { "id": "olive", "name": "Olive", "category": "bodys", "subcategory": "body", "price": 40000, "compare_at_price": null, "description": "Body básico al mejor precio. Calidad premium accesible.", "sizes": ["XS","S","M","L"], "colors": ["Verde oliva","Negro","Beige"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/olive-1.jpg"], "tags": ["body","básico"] },
+    { "id": "luxe", "name": "Luxe", "category": "vestidos", "subcategory": "vestido", "price": 55000, "compare_at_price": null, "description": "Vestido elegante con fit favorecedor. Para sentirte de lujo.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Vino","Beige"], "is_new": true, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/luxe-1.jpg"], "tags": ["vestido","elegante"] },
+    { "id": "air", "name": "Air", "category": "blusas", "subcategory": "blusa caída", "price": 40000, "compare_at_price": null, "description": "Blusa de caída suave y ligera. Cómoda y favorecedora.", "sizes": ["XS","S","M","L"], "colors": ["Blanco","Beige","Negro"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/air-1.jpg"], "tags": ["blusa","caída"] },
+    { "id": "pure", "name": "Pure", "category": "bodys", "subcategory": "body", "price": 48000, "compare_at_price": null, "description": "Body básico de líneas limpias. Pure essential.", "sizes": ["XS","S","M","L"], "colors": ["Blanco","Negro","Beige"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/pure-1.jpg"], "tags": ["body","básico"] },
+    { "id": "diva", "name": "Diva", "category": "bodys", "subcategory": "body", "price": 48000, "compare_at_price": null, "description": "Body con actitud. Para la diva que llevas dentro.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Vino","Rojo"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/diva-1.jpg"], "tags": ["body","statement"] },
+    { "id": "eclipse-set", "name": "Eclipse Set", "category": "conjuntos", "subcategory": "set body + prenda", "price": 80000, "compare_at_price": null, "description": "Conjunto coordinado de dos piezas. Body y prenda inferior que se complementan a la perfección.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Beige","Café"], "is_new": true, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/eclipse-set-1.jpg"], "tags": ["conjunto","set","coordinado"] },
+    { "id": "fit", "name": "Fit", "category": "bodys", "subcategory": "body costillero", "price": 46000, "compare_at_price": null, "description": "Body en tela costillera con fit ajustado. Comodidad y estilo.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Blanco","Beige"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/fit-1.jpg"], "tags": ["body","costillero","ribbed"] },
+    { "id": "butterfly", "name": "Butterfly", "category": "bodys", "subcategory": "body", "price": 32000, "compare_at_price": null, "description": "Body delicado y femenino. Como una mariposa.", "sizes": ["XS","S","M","L"], "colors": ["Rosa","Blanco","Negro"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/butterfly-1.jpg"], "tags": ["body","femenino"] },
+    { "id": "glow", "name": "Glow", "category": "bodys", "subcategory": "body", "price": 48000, "compare_at_price": null, "description": "Body que te hace brillar. Diseño favorecedor y cómodo.", "sizes": ["XS","S","M","L"], "colors": ["Beige","Negro","Vino"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/glow-1.jpg"], "tags": ["body"] },
+    { "id": "sky", "name": "Sky", "category": "bodys", "subcategory": "body", "price": 38000, "compare_at_price": null, "description": "Body básico al mejor precio. Cielo de comodidad.", "sizes": ["XS","S","M","L"], "colors": ["Azul cielo","Blanco","Negro"], "is_new": false, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/sky-1.jpg"], "tags": ["body","básico"] },
+    { "id": "queen-set", "name": "Queen Set", "category": "conjuntos", "subcategory": "conjunto trío", "price": 105000, "compare_at_price": null, "description": "Conjunto trío premium. Tres piezas coordinadas que crean múltiples looks. Pieza statement de BAMTAE.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Beige"], "is_new": true, "is_best_seller": true, "is_on_sale": false, "in_stock": true, "images": ["/products/queen-set-1.jpg"], "tags": ["conjunto","trío","premium","statement"] },
+    { "id": "muse-set", "name": "Muse Set", "category": "conjuntos", "subcategory": "set body", "price": 85000, "compare_at_price": null, "description": "Set inspirador con body coordinado. Para la musa que eres.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Vino","Beige"], "is_new": true, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/muse-set-1.jpg"], "tags": ["conjunto","set"] },
+    { "id": "nova", "name": "Nova", "category": "bodys", "subcategory": "croptop", "price": 75000, "compare_at_price": null, "description": "Croptop de diseño moderno. Pieza nueva, fresca y favorecedora.", "sizes": ["XS","S","M","L"], "colors": ["Negro","Blanco","Beige"], "is_new": true, "is_best_seller": true, "is_on_sale": false, "in_stock": true, "images": ["/products/nova-1.jpg"], "tags": ["croptop","top","statement"] },
+    { "id": "esmeralda-set", "name": "Esmeralda Set", "category": "conjuntos", "subcategory": "set dúo", "price": 80000, "compare_at_price": null, "description": "Conjunto dúo en tonos esmeralda. Elegante, sofisticado y único.", "sizes": ["XS","S","M","L"], "colors": ["Verde esmeralda","Negro"], "is_new": true, "is_best_seller": false, "is_on_sale": false, "in_stock": true, "images": ["/products/esmeralda-set-1.jpg"], "tags": ["conjunto","set","dúo","esmeralda"] }
+  ],
+  "testimonials": [
+    { "name": "Valentina G.", "city": "Medellín", "product": "Venus", "rating": 5, "text": "El body Venus es divino, la tela se siente premium y el fit es espectacular. Ya pedí en otros tres colores." },
+    { "name": "Manuela R.", "city": "Bogotá", "product": "Queen Set", "rating": 5, "text": "El Queen Set superó mis expectativas. Llegó rápido a Bogotá y la calidad es de otro nivel. Me lo pongo para todo." },
+    { "name": "Sofía L.", "city": "Cali", "product": "Galaxy", "rating": 5, "text": "Llevo un mes usando el Galaxy y sigue como nuevo. La tela no se transparenta y el fit es muy favorecedor." },
+    { "name": "Camila P.", "city": "Medellín", "product": "Amour", "rating": 5, "text": "El Amour me hizo sentir poderosa. Pedí contraentrega en Medellín y llegó al otro día. Cinco estrellas." },
+    { "name": "Laura M.", "city": "Barranquilla", "product": "Nova", "rating": 5, "text": "El croptop Nova combina con todo. Calidad real, no es como otras tiendas online." }
+  ],
+  "faq": [
+    { "q": "¿Hacen envíos a toda Colombia?", "a": "Sí, enviamos a todo el país con Servientrega e Interrapidísimo. Medellín y Área Metropolitana: 1-2 días hábiles. Resto del país: 2-4 días hábiles." },
+    { "q": "¿Cómo puedo pagar?", "a": "En Medellín y Área Metropolitana puedes pagar contraentrega en efectivo o por transferencia (Nequi o Bancolombia). En el resto del país solo aceptamos transferencia." },
+    { "q": "¿Tienen tienda física?", "a": "Estamos ubicadas en Carrera 43B, La Gabriela, Bello (Antioquia). Por ahora vendemos solo online, pero diseñamos y despachamos desde Bello para toda Colombia." },
+    { "q": "¿Cuánto cuesta el envío?", "a": "El envío tiene un costo según tu ciudad. En pedidos sobre $200.000 el envío es gratis a toda Colombia." },
+    { "q": "¿Puedo cambiar la talla si no me queda?", "a": "Sí, tienes 8 días desde que recibes tu pedido para solicitar cambio. La prenda debe estar sin uso, con etiquetas. El envío del cambio lo asume el cliente." },
+    { "q": "¿Cómo sé qué talla elegir?", "a": "Revisa nuestra guía de tallas en el menú o en cada producto. Si dudas entre dos tallas, te recomendamos la mayor." }
+  ]
+}
