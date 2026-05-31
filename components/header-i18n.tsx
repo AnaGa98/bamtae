@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { Search, User, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CartDrawer } from "@/components/cart-drawer"
@@ -21,6 +20,23 @@ const ANNOUNCEMENT_MESSAGES = [
   "📍 Diseñado y hecho en Medellín, Colombia",
   "💳 Contraentrega disponible en Medellín y Área Metropolitana",
 ]
+
+const primaryNavLinks = [
+  { label: "Novedades", href: "novedades" },
+  { label: "Bodys", href: "bodys" },
+  { label: "Conjuntos", href: "conjuntos" },
+  { label: "Vestidos", href: "vestidos" },
+] as const
+
+const secondaryNavLinks = [
+  { label: "Mas Vendidos", href: "mas-vendidos" },
+  { label: "Ofertas", href: "ofertas" },
+  { label: "Sobre Nosotros", href: "sobre-nosotros" },
+  { label: "Blog", href: "blog" },
+] as const
+
+const navLinkClass =
+  "relative uppercase text-sm tracking-wide text-[#3D2817] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[#3D2817] after:transition-transform after:duration-300 hover:after:scale-x-100"
 
 export function AnnouncementBar() {
   const [index, setIndex] = useState(0)
@@ -68,80 +84,84 @@ export function AnnouncementBar() {
 export function Header({ dict, locale }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const navLinks = [
-    { label: "Novedades", href: `/${locale}/novedades` },
-    { label: "Bodys", href: `/${locale}/bodys` },
-    { label: "Conjuntos", href: `/${locale}/conjuntos` },
-    { label: "Vestidos", href: `/${locale}/vestidos` },
-    { label: "Blusas", href: `/${locale}/blusas` },
-    { label: "Mas Vendidos", href: `/${locale}/mas-vendidos` },
-  ]
-
   return (
     <>
       <AnnouncementBar />
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Mobile menu button */}
-            <button
-              className="lg:hidden p-2 -ml-2"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
 
-            {/* Logo */}
-            <Link href={`/${locale}`} className="flex-shrink-0">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sophisticated%20Logo%20for%20Women%27s%20Brand%20%27bamtae%27%202-jZzQj4boJB03EYzzWjmH8IyfKgMd9C.png"
-                alt="BAMTAE"
-                width={120}
-                height={60}
-                className="h-10 lg:h-14 w-auto"
-                priority
-              />
-            </Link>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm tracking-wide text-foreground/80 hover:text-foreground transition-colors"
+      <div className="sticky top-0 z-50">
+        {/* Barra superior cream */}
+        <div className="bg-[#F7F3EE] h-16 border-b border-[#3D2817]/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div className="relative flex items-center justify-between h-full">
+              <div className="flex items-center gap-2">
+                <button
+                  className="lg:hidden p-2 -ml-2"
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  aria-label="Abrir menú"
                 >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
+                  {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </button>
 
-            {/* Icons */}
-            <div className="flex items-center gap-1 sm:gap-2">
-              <Button variant="ghost" size="icon" className="w-9 h-9">
-                <Search className="w-5 h-5" />
-                <span className="sr-only">{dict.nav.search}</span>
-              </Button>
-              <Button variant="ghost" size="icon" className="w-9 h-9">
-                <User className="w-5 h-5" />
-                <span className="sr-only">{dict.nav.account}</span>
-              </Button>
-              <LanguageSwitcher currentLocale={locale} />
-              <CartDrawer />
+                <Link
+                  href={`/${locale}`}
+                  className="font-serif text-3xl lg:text-4xl text-[#3D2817] leading-none tracking-tight"
+                >
+                  Bamtae
+                </Link>
+              </div>
+
+              <nav className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8">
+                {primaryNavLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={`/${locale}/${link.href}`}
+                    className={navLinkClass}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+
+              <div className="flex items-center gap-1 sm:gap-2">
+                <Button variant="ghost" size="icon" className="w-9 h-9">
+                  <Search className="w-5 h-5" />
+                  <span className="sr-only">{dict.nav.search}</span>
+                </Button>
+                <Button variant="ghost" size="icon" className="w-9 h-9">
+                  <User className="w-5 h-5" />
+                  <span className="sr-only">{dict.nav.account}</span>
+                </Button>
+                <LanguageSwitcher currentLocale={locale} />
+                <CartDrawer />
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Barra inferior marrón */}
+        <div className="bg-[#3D2817] h-10">
+          <nav className="max-w-7xl mx-auto px-4 h-full flex items-center justify-center gap-4 sm:gap-8 overflow-x-auto">
+            {secondaryNavLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={`/${locale}/${link.href}`}
+                className="shrink-0 uppercase text-xs tracking-wider text-[#F7F3EE] transition-opacity hover:opacity-70 whitespace-nowrap"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        {/* Menú mobile (nav principal) */}
         {mobileMenuOpen && (
-          <nav className="lg:hidden bg-background border-t border-border">
+          <nav className="lg:hidden bg-[#F7F3EE] border-b border-[#3D2817]/10">
             <div className="px-4 py-4 space-y-3">
-              {navLinks.map((link) => (
+              {primaryNavLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
-                  className="block py-2 text-base tracking-wide text-foreground/80 hover:text-foreground transition-colors"
+                  href={`/${locale}/${link.href}`}
+                  className="block py-2 text-sm uppercase tracking-wide text-[#3D2817]"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
@@ -150,7 +170,7 @@ export function Header({ dict, locale }: HeaderProps) {
             </div>
           </nav>
         )}
-      </header>
+      </div>
     </>
   )
 }
