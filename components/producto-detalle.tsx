@@ -6,6 +6,7 @@ import Link from "next/link"
 import { MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { formatPriceCop, Product } from "@/lib/products"
+import { useCart } from "@/lib/cart-context"
 
 interface ProductoDetalleProps {
   locale: string
@@ -25,6 +26,7 @@ export function ProductoDetalle({
   const [selectedColor, setSelectedColor] = useState(product.colors[0] ?? "")
   const [selectedSize, setSelectedSize] = useState(product.sizes[0] ?? "")
   const [activeImage, setActiveImage] = useState(0)
+  const { addItem, setIsOpen } = useCart()
 
   const galleryImages = useMemo(() => {
     const colorImages = imagesByColor[selectedColor] ?? []
@@ -147,7 +149,35 @@ export function ProductoDetalle({
           </div>
 
           <div className="grid sm:grid-cols-2 gap-3">
-            <Button className="h-12 bg-[#8B6F47] hover:bg-[#6f5738] text-white">
+            <Button
+              className="h-12 bg-[#8B6F47] hover:bg-[#6f5738] text-white"
+              onClick={() => {
+                if (!selectedSize) {
+                  alert("Por favor selecciona una talla")
+                  return
+                }
+                if (!selectedColor) {
+                  alert("Por favor selecciona un color")
+                  return
+                }
+
+                const image =
+                  galleryImages[activeImage] ??
+                  galleryImages[0] ??
+                  images[0] ??
+                  "/placeholder.svg"
+
+                addItem({
+                  productId: product.id,
+                  name: product.name,
+                  color: selectedColor,
+                  size: selectedSize,
+                  price: product.price,
+                  image,
+                })
+                setIsOpen(true)
+              }}
+            >
               Añadir al carrito
             </Button>
             <Button asChild variant="outline" className="h-12 border-[#8B6F47] text-[#8B6F47] hover:bg-[#F7F3EE]">

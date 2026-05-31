@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { WhatsAppButton } from '@/components/whatsapp-button'
+import { CartProvider } from '@/lib/cart-context'
 import './globals.css'
 
 const inter = Inter({ 
@@ -32,7 +34,10 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-        {children}
+        <CartProvider>
+          {children}
+        </CartProvider>
+        <WhatsAppButton />
         <Analytics />
       </body>
     </html>

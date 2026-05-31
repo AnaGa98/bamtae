@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useParams } from "next/navigation"
@@ -11,39 +10,12 @@ import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Separator } from "@/components/ui/separator"
 import { getDictionary } from "@/lib/dictionaries"
+import {
+  formatCartPrice,
+  FREE_SHIPPING_THRESHOLD,
+  useCart,
+} from "@/lib/cart-context"
 import type { Locale } from "@/lib/i18n"
-
-interface CartItem {
-  id: string
-  name: string
-  color: string
-  size: string
-  price: number
-  originalPrice?: number
-  quantity: number
-  image: string
-}
-
-const initialCartItems: CartItem[] = [
-  {
-    id: "1",
-    name: "Off-Shoulder Ruched Body",
-    color: "Cream",
-    size: "S",
-    price: 78,
-    quantity: 1,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-VqgEGUw949HNadnr8kdJcl1AbWUw0H.png",
-  },
-  {
-    id: "2",
-    name: "Mesh Corset Bodysuit",
-    color: "Black",
-    size: "M",
-    price: 85,
-    quantity: 2,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-6mA3aVAaXSWggeKksI1lr4qNpo3ryg.png",
-  },
-]
 
 const recommendedProducts = [
   {
@@ -76,89 +48,46 @@ const recommendedProducts = [
   },
 ]
 
-const FREE_SHIPPING_THRESHOLD = 150
+const FREE_SHIPPING_THRESHOLD_LOCAL = FREE_SHIPPING_THRESHOLD
 
 export default function CartPage() {
   const params = useParams()
-  const locale = (params.locale as Locale) || 'es'
+  const locale = (params.locale as Locale) || "es"
   const dict = getDictionary(locale)
-  
-  const [cartItems, setCartItems] = useState<CartItem[]>(initialCartItems)
 
-  const updateQuantity = (id: string, delta: number) => {
-    setCartItems((items) =>
-      items
-        .map((item) =>
-          item.id === id
-            ? { ...item, quantity: Math.max(0, item.quantity + delta) }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    )
-  }
+  const { items: cartItems, subtotal, updateQuantity, removeItem } = useCart()
 
-  const removeItem = (id: string) => {
-    setCartItems((items) => items.filter((item) => item.id !== id))
-  }
-
-  const subtotal = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  )
-  const shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : 12
-  const total = subtotal + shipping
+  const shipping = subtotal >= FREE_SHIPPING_THRESHOLD_LOCAL ? 0 : null
+  const total = subtotal + (shipping ?? 0)
   const progressToFreeShipping = Math.min(
-    (subtotal / FREE_SHIPPING_THRESHOLD) * 100,
+    (subtotal / FREE_SHIPPING_THRESHOLD_LOCAL) * 100,
     100
   )
-  const amountToFreeShipping = Math.max(FREE_SHIPPING_THRESHOLD - subtotal, 0)
+  const amountToFreeShipping = Math.max(FREE_SHIPPING_THRESHOLD_LOCAL - subtotal, 0)
 
-  const texts = locale === 'es' ? {
+  const texts = {
     cart: "Carrito",
     home: "Inicio",
     continueShopping: "Seguir Comprando",
-    emptyCart: "Tu carrito esta vacio",
+    emptyCart: "Tu carrito está vacío",
     startShopping: "Empezar a Comprar",
-    freeShipping: "Envio gratis en pedidos de $150+",
-    addMore: `Agrega $${amountToFreeShipping} mas para envio gratis`,
-    unlocked: "Envio gratis desbloqueado",
+    addMore: `Te faltan ${formatCartPrice(amountToFreeShipping)} para envío gratis`,
+    unlocked: "¡Has desbloqueado envío gratis!",
     saveWishlist: "Guardar en favoritos",
     orderSummary: "Resumen del Pedido",
     subtotal: "Subtotal",
-    shipping: "Envio",
+    shipping: "Envío",
+    shippingPending: "A coordinar",
     free: "GRATIS",
     total: "Total",
     checkout: "Finalizar Pedido",
     secureCheckout: "Pedido seguro",
-    easyReturns: "Devoluciones en 30 dias",
-    fastShipping: "Envio coordinado contigo",
-    alsoLike: "Tambien Te Puede Gustar",
-    quickAdd: "Agregar Rapido",
+    easyReturns: "Devoluciones en 8 días",
+    fastShipping: "Envío coordinado contigo",
+    alsoLike: "También Te Puede Gustar",
+    quickAdd: "Agregar Rápido",
     trustMessage: "Te contactaremos para confirmar tu compra",
-    checkoutPath: "/es/finalizar-pedido",
-  } : {
-    cart: "Cart",
-    home: "Home",
-    continueShopping: "Continue Shopping",
-    emptyCart: "Your cart is empty",
-    startShopping: "Start Shopping",
-    freeShipping: "Free shipping on orders $150+",
-    addMore: `Add $${amountToFreeShipping} more for free shipping`,
-    unlocked: "Free shipping unlocked",
-    saveWishlist: "Save to Wishlist",
-    orderSummary: "Order Summary",
-    subtotal: "Subtotal",
-    shipping: "Shipping",
-    free: "FREE",
-    total: "Total",
-    checkout: "Complete Order",
-    secureCheckout: "Secure Order",
-    easyReturns: "Easy 30-Day Returns",
-    fastShipping: "Shipping coordinated with you",
-    alsoLike: "You May Also Like",
-    quickAdd: "Quick Add",
-    trustMessage: "We will contact you to confirm your purchase",
-    checkoutPath: "/en/complete-order",
+    checkoutPath: `/${locale}/finalizar-pedido`,
   }
 
   return (
@@ -196,7 +125,7 @@ export default function CartPage() {
                   <div className="flex items-center gap-2 mb-2">
                     <Truck className="w-4 h-4 text-[#6B4F43]" />
                     <span className="text-sm">
-                      {subtotal >= FREE_SHIPPING_THRESHOLD
+                      {subtotal >= FREE_SHIPPING_THRESHOLD_LOCAL
                         ? texts.unlocked
                         : texts.addMore}
                     </span>
@@ -270,11 +199,11 @@ export default function CartPage() {
 
                           <div className="text-right">
                             <p className="font-semibold text-[#1E1E1E]">
-                              ${(item.price * item.quantity).toFixed(2)}
+                              {formatCartPrice(item.price * item.quantity)}
                             </p>
                             {item.quantity > 1 && (
                               <p className="text-xs text-[#B8A89C]">
-                                ${item.price} c/u
+                                {formatCartPrice(item.price)} c/u
                               </p>
                             )}
                           </div>
@@ -302,12 +231,12 @@ export default function CartPage() {
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-[#B8A89C]">{texts.subtotal}</span>
-                      <span className="text-[#1E1E1E]">${subtotal.toFixed(2)}</span>
+                      <span className="text-[#1E1E1E]">{formatCartPrice(subtotal)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-[#B8A89C]">{texts.shipping}</span>
                       <span className="text-[#1E1E1E]">
-                        {shipping === 0 ? texts.free : `$${shipping.toFixed(2)}`}
+                        {shipping === 0 ? texts.free : texts.shippingPending}
                       </span>
                     </div>
                   </div>
@@ -316,7 +245,7 @@ export default function CartPage() {
 
                   <div className="flex justify-between font-semibold text-lg mb-6">
                     <span>{texts.total}</span>
-                    <span>${total.toFixed(2)}</span>
+                    <span>{formatCartPrice(total)}</span>
                   </div>
 
                   {/* Trust Message */}
@@ -373,7 +302,7 @@ export default function CartPage() {
                       </button>
                     </div>
                     <h3 className="text-sm text-[#1E1E1E] mb-1">{product.name}</h3>
-                    <p className="font-semibold text-sm">${product.price}</p>
+                    <p className="font-semibold text-sm">{formatCartPrice(product.price)}</p>
                     <div className="flex gap-1 mt-2">
                       {product.colors.map((color) => (
                         <div
