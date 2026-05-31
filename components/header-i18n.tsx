@@ -36,7 +36,7 @@ const secondaryNavLinks = [
 ] as const
 
 const navLinkClass =
-  "relative uppercase text-sm tracking-wide text-[#3D2817] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[#3D2817] after:transition-transform after:duration-300 hover:after:scale-x-100"
+  "relative uppercase text-sm tracking-wide text-[#3D2817] transition-colors hover:text-[#2a1a0f] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[#2a1a0f] after:transition-transform after:duration-300 hover:after:scale-x-100"
 
 export function AnnouncementBar() {
   const [index, setIndex] = useState(0)
