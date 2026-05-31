@@ -30,10 +30,10 @@ export default async function Home({
     <main className="min-h-screen">
       <Header dict={dict} locale={locale} />
       <Hero dict={dict} locale={locale} />
-      <Categories locale={locale} />
-      <BestSellers locale={locale} />
-      <NewArrivals locale={locale} products={newArrivals} />
       <TrustBadges />
+      <BestSellers locale={locale} />
+      <Categories locale={locale} />
+      <NewArrivals locale={locale} products={newArrivals} />
       <WhyBamtae />
       <Lifestyle locale={locale} />
       <Reviews />
