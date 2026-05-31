@@ -4,6 +4,7 @@ import { Categories } from "@/components/categories"
 import { BestSellers } from "@/components/best-sellers"
 import { WhyBamtae } from "@/components/why-bamtae"
 import { NewArrivals } from "@/components/new-arrivals"
+import { TrustBadges } from "@/components/trust-badges"
 import { Lifestyle } from "@/components/lifestyle"
 import { Reviews } from "@/components/reviews"
 import { Social } from "@/components/social"
@@ -31,8 +32,9 @@ export default async function Home({
       <Hero dict={dict} locale={locale} />
       <Categories locale={locale} />
       <BestSellers locale={locale} />
-      <WhyBamtae />
       <NewArrivals locale={locale} products={newArrivals} />
+      <TrustBadges />
+      <WhyBamtae />
       <Lifestyle locale={locale} />
       <Reviews />
       <Social />
