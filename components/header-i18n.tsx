@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Search, User, Menu, X } from "lucide-react"
@@ -15,10 +15,52 @@ interface HeaderProps {
   locale: Locale
 }
 
-export function AnnouncementBar({ text }: { text: string }) {
+const ANNOUNCEMENT_MESSAGES = [
+  "🚚 Envío gratis en pedidos sobre $500.000",
+  "💚 Cambios fáciles en 8 días hábiles",
+  "📍 Diseñado y hecho en Medellín, Colombia",
+  "💳 Contraentrega disponible en Medellín y Área Metropolitana",
+]
+
+export function AnnouncementBar() {
+  const [index, setIndex] = useState(0)
+  const [visible, setVisible] = useState(true)
+  const [paused, setPaused] = useState(false)
+
+  useEffect(() => {
+    if (paused) return
+
+    const interval = setInterval(() => {
+      setVisible(false)
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [paused, index])
+
+  useEffect(() => {
+    if (visible) return
+
+    const timeout = setTimeout(() => {
+      setIndex((current) => (current + 1) % ANNOUNCEMENT_MESSAGES.length)
+      setVisible(true)
+    }, 400)
+
+    return () => clearTimeout(timeout)
+  }, [visible])
+
   return (
-    <div className="bg-primary text-primary-foreground text-center py-2.5 px-4 text-sm tracking-wide">
-      <p>{text}</p>
+    <div
+      className="bg-primary text-primary-foreground text-center py-2.5 px-4 text-xs tracking-wide"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <p
+        className={`transition-opacity duration-500 ease-in-out ${
+          visible ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        {ANNOUNCEMENT_MESSAGES[index]}
+      </p>
     </div>
   )
 }
@@ -37,7 +79,7 @@ export function Header({ dict, locale }: HeaderProps) {
 
   return (
     <>
-      <AnnouncementBar text={dict.announcement.text} />
+      <AnnouncementBar />
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
