@@ -3,23 +3,23 @@ import { Sparkles, Feather, Move, Heart } from "lucide-react"
 const benefits = [
   {
     icon: Sparkles,
-    title: "Sculpting Fits",
-    description: "Designed to flatter and enhance your natural silhouette",
+    title: "Cortes que Esculpen",
+    description: "Diseñados para realzar tu silueta natural",
   },
   {
     icon: Feather,
-    title: "Soft Premium Fabrics",
-    description: "Luxuriously soft materials that feel like a second skin",
+    title: "Telas Premium Suaves",
+    description: "Materiales lujosamente suaves que se sienten como una segunda piel",
   },
   {
     icon: Move,
-    title: "Designed for Movement",
-    description: "Engineered for comfort whether you're working out or working from home",
+    title: "Pensados para Moverte",
+    description: "Cómodos para todo tu día, desde el trabajo hasta tu rutina favorita",
   },
   {
     icon: Heart,
-    title: "Everyday Confidence",
-    description: "Feel beautiful and empowered in everything you wear",
+    title: "Confianza Cada Día",
+    description: "Siéntete hermosa y empoderada en todo lo que uses",
   },
 ]
 
@@ -29,10 +29,10 @@ export function WhyBamtae() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 lg:mb-16">
           <h2 className="font-serif text-3xl lg:text-4xl font-medium text-foreground">
-            Why BAMTAE
+            Por qué BAMTAE
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            We believe every woman deserves to feel confident in her own skin
+            Creemos que toda mujer merece sentirse segura en su propia piel
           </p>
         </div>
 
