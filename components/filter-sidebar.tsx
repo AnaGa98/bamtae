@@ -180,19 +180,10 @@ interface FilterSidebarProps {
 }
 
 export function FilterSidebar({ className, onClose, isMobile }: FilterSidebarProps) {
-  const [selectedSizes, setSelectedSizes] = useState<string[]>([])
   const [selectedColors, setSelectedColors] = useState<string[]>([])
   const [selectedFits, setSelectedFits] = useState<string[]>([])
   const [selectedStyles, setSelectedStyles] = useState<string[]>([])
   const [selectedPrice, setSelectedPrice] = useState<string | null>(null)
-
-  const sizes = [
-    { label: "XS", value: "xs", count: 12 },
-    { label: "S", value: "s", count: 18 },
-    { label: "M", value: "m", count: 24 },
-    { label: "L", value: "l", count: 16 },
-    { label: "XL", value: "xl", count: 8 },
-  ]
 
   const colors = [
     { name: "Nude Beige", hex: "#D8B7A4", value: "nude" },
@@ -219,7 +210,6 @@ export function FilterSidebar({ className, onClose, isMobile }: FilterSidebarPro
   ]
 
   const clearAllFilters = () => {
-    setSelectedSizes([])
     setSelectedColors([])
     setSelectedFits([])
     setSelectedStyles([])
@@ -227,7 +217,6 @@ export function FilterSidebar({ className, onClose, isMobile }: FilterSidebarPro
   }
 
   const hasActiveFilters =
-    selectedSizes.length > 0 ||
     selectedColors.length > 0 ||
     selectedFits.length > 0 ||
     selectedStyles.length > 0 ||
@@ -257,14 +246,6 @@ export function FilterSidebar({ className, onClose, isMobile }: FilterSidebarPro
             </Button>
           </div>
         )}
-
-        <FilterSection title="Size">
-          <CheckboxFilter
-            options={sizes}
-            selected={selectedSizes}
-            onChange={setSelectedSizes}
-          />
-        </FilterSection>
 
         <FilterSection title="Color">
           <ColorFilter

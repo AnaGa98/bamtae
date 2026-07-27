@@ -6,6 +6,7 @@ export type HomeProductCard = {
   slug: string
   name: string
   price: number
+  originalPrice?: number | null
   colors: string[]
   image: string
   badge?: "Mas Vendido" | "Nuevo"
@@ -20,6 +21,7 @@ export function toHomeProductCard(
     slug: product.slug,
     name: product.name,
     price: product.price,
+    originalPrice: product.compare_at_price,
     colors: product.colors,
     image: getPrimaryProductImage(product),
     badge,

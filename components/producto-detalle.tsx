@@ -24,7 +24,6 @@ export function ProductoDetalle({
   imagesByColor,
 }: ProductoDetalleProps) {
   const [selectedColor, setSelectedColor] = useState(product.colors[0] ?? "")
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0] ?? "")
   const [activeImage, setActiveImage] = useState(0)
   const { addItem, setIsOpen } = useCart()
 
@@ -93,7 +92,25 @@ export function ProductoDetalle({
           <div>
             <h1 className="font-serif text-3xl text-foreground">{product.name}</h1>
             <p className="mt-3 text-muted-foreground">{product.description}</p>
-            <p className="mt-4 text-2xl font-semibold text-foreground">${formatPriceCop(product.price)}</p>
+            <p className="mt-4 text-2xl font-semibold text-foreground">
+              {product.compare_at_price && product.compare_at_price > product.price ? (
+                <span className="inline-flex items-baseline gap-3">
+                  <span className="text-wine">${formatPriceCop(product.price)}</span>
+                  <span className="text-lg font-normal text-stone-400 line-through">
+                    ${formatPriceCop(product.compare_at_price)}
+                  </span>
+                  <span className="text-sm font-medium text-wine">
+                    -
+                    {Math.round(
+                      ((product.compare_at_price - product.price) / product.compare_at_price) * 100
+                    )}
+                    %
+                  </span>
+                </span>
+              ) : (
+                `$${formatPriceCop(product.price)}`
+              )}
+            </p>
           </div>
 
           <div>
@@ -127,40 +144,22 @@ export function ProductoDetalle({
             <p className="mt-2 text-xs text-muted-foreground">* Color con fotos disponibles</p>
           </div>
 
-          <div>
-            <p className="text-sm mb-3">
-              Talla: <span className="font-medium">{selectedSize}</span>
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {product.sizes.map((size) => (
-                <button
-                  key={size}
-                  onClick={() => setSelectedSize(size)}
-                  className={`w-12 h-10 text-sm rounded border ${
-                    selectedSize === size
-                      ? "border-[#8B6F47] bg-[#F7F3EE] text-foreground"
-                      : "border-border hover:border-[#8B6F47]"
-                  }`}
-                >
-                  {size}
-                </button>
-              ))}
-            </div>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-stone-100 text-stone-700 text-sm mb-4">
+            <span className="font-medium">Talla única</span>
+            <span className="text-stone-400">·</span>
+            <span className="text-stone-500">Se adapta de XS a L</span>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-3">
             <Button
-              className="h-12 bg-[#8B6F47] hover:bg-[#6f5738] text-white"
+              className="h-12 bg-terracotta hover:bg-[#a84528] text-terracotta-foreground"
               onClick={() => {
-                if (!selectedSize) {
-                  alert("Por favor selecciona una talla")
-                  return
-                }
-                if (!selectedColor) {
+                if (product.colors.length > 1 && !selectedColor) {
                   alert("Por favor selecciona un color")
                   return
                 }
 
+                const color = selectedColor || product.colors[0] || "Único"
                 const image =
                   galleryImages[activeImage] ??
                   galleryImages[0] ??
@@ -170,8 +169,7 @@ export function ProductoDetalle({
                 addItem({
                   productId: product.id,
                   name: product.name,
-                  color: selectedColor,
-                  size: selectedSize,
+                  color,
                   price: product.price,
                   image,
                 })
@@ -180,10 +178,10 @@ export function ProductoDetalle({
             >
               Añadir al carrito
             </Button>
-            <Button asChild variant="outline" className="h-12 border-[#8B6F47] text-[#8B6F47] hover:bg-[#F7F3EE]">
+            <Button asChild variant="outline" className="h-12 border-cacao text-cacao hover:border-terracotta hover:bg-terracotta/10 hover:text-terracotta">
               <a
                 href={`${WHATSAPP_LINK}?text=${encodeURIComponent(
-                  `Hola, quiero consultar por ${product.name} en talla ${selectedSize} y color ${selectedColor}.`
+                  `Hola, quiero consultar por ${product.name} en color ${selectedColor || product.colors[0] || "Único"}.`
                 )}`}
                 target="_blank"
                 rel="noreferrer"

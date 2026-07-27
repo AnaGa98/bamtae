@@ -120,15 +120,19 @@ export function RelatedProducts() {
                 {/* Badge */}
                 {product.badge && (
                   <span
-                    className={`absolute top-3 left-3 text-[10px] tracking-wider px-2 py-0.5 z-10 ${
+                    className={`absolute top-3 left-3 text-[10px] tracking-wider px-2 py-0.5 z-10 uppercase ${
                       product.badge === "SALE"
-                        ? "bg-[#6B4F43] text-white"
+                        ? "bg-wine text-wine-foreground"
                         : product.badge === "BEST SELLER"
-                        ? "bg-[#1E1E1E] text-white"
-                        : "bg-white text-[#1E1E1E]"
+                        ? "bg-terracotta text-terracotta-foreground"
+                        : "bg-mustard text-mustard-foreground"
                     }`}
                   >
-                    {product.badge}
+                    {product.badge === "SALE"
+                      ? "Oferta"
+                      : product.badge === "BEST SELLER"
+                        ? "Más vendido"
+                        : "Nuevo"}
                   </span>
                 )}
 
@@ -176,9 +180,15 @@ export function RelatedProducts() {
                 {product.name}
               </h3>
               <div className="flex items-center gap-2">
-                <span className="text-sm text-[#1E1E1E]">${product.price}.00</span>
+                <span
+                  className={`text-sm ${
+                    product.originalPrice ? "text-wine font-medium" : "text-[#1E1E1E]"
+                  }`}
+                >
+                  ${product.price}.00
+                </span>
                 {product.originalPrice && (
-                  <span className="text-xs text-[#B8A89C] line-through">
+                  <span className="text-xs text-stone-400 line-through">
                     ${product.originalPrice}.00
                   </span>
                 )}

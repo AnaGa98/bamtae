@@ -35,7 +35,7 @@ function buildWhatsAppCheckoutUrl(items: CartItem[], city: string) {
   const productLines = items
     .map(
       (item) =>
-        `• ${item.name} - ${item.color} - Talla ${item.size} (${formatCOP(item.price)}) x${item.quantity}`
+        `• ${item.name} - ${item.color} (${formatCOP(item.price)}) x${item.quantity}`
     )
     .join("\n")
 
@@ -219,7 +219,7 @@ export default function CartPage() {
                               {item.name}
                             </h3>
                             <p className="text-sm text-[#B8A89C] mt-0.5">
-                              {item.color} / {item.size}
+                              {item.color}
                             </p>
                           </div>
                           <button

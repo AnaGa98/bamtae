@@ -15,11 +15,11 @@ interface HeaderProps {
 }
 
 const ANNOUNCEMENT_MESSAGES = [
-  "🚚 Envío gratis en pedidos sobre $500.000",
-  "💚 Cambios fáciles en 8 días hábiles",
-  "📍 Diseñado y hecho en Medellín, Colombia",
-  "💳 Contraentrega disponible en Medellín y Área Metropolitana",
-]
+  { icon: "🚚", text: "Envío gratis en pedidos sobre $500.000" },
+  { icon: "💚", text: "Cambios fáciles en 8 días hábiles" },
+  { icon: "📍", text: "Diseñado y hecho en Medellín, Colombia" },
+  { icon: "💳", text: "Contraentrega disponible en Medellín y Área Metropolitana" },
+] as const
 
 const primaryNavLinks = [
   { label: "Novedades", href: "novedades" },
@@ -36,7 +36,7 @@ const secondaryNavLinks = [
 ] as const
 
 const navLinkClass =
-  "relative uppercase text-sm tracking-wide text-[#3D2817] transition-colors hover:text-[#2a1a0f] after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-[#2a1a0f] after:transition-transform after:duration-300 hover:after:scale-x-100"
+  "relative uppercase text-sm tracking-wide text-[#3D2817] transition-colors hover:text-terracotta after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-terracotta after:transition-transform after:duration-300 hover:after:scale-x-100"
 
 export function AnnouncementBar() {
   const [index, setIndex] = useState(0)
@@ -64,9 +64,11 @@ export function AnnouncementBar() {
     return () => clearTimeout(timeout)
   }, [visible])
 
+  const message = ANNOUNCEMENT_MESSAGES[index]
+
   return (
     <div
-      className="bg-primary text-primary-foreground text-center py-2.5 px-4 text-xs tracking-wide"
+      className="bg-terracotta text-terracotta-foreground text-center py-2.5 px-4 text-xs tracking-wide"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -75,7 +77,10 @@ export function AnnouncementBar() {
           visible ? "opacity-100" : "opacity-0"
         }`}
       >
-        {ANNOUNCEMENT_MESSAGES[index]}
+        <span className="mr-1.5" aria-hidden="true">
+          {message.icon}
+        </span>
+        <span>{message.text}</span>
       </p>
     </div>
   )
@@ -145,7 +150,7 @@ export function Header({ dict, locale }: HeaderProps) {
               <Link
                 key={link.href}
                 href={`/${locale}/${link.href}`}
-                className="shrink-0 uppercase text-xs tracking-wider text-[#F7F3EE] transition-opacity hover:opacity-70 whitespace-nowrap"
+                className="shrink-0 uppercase text-xs tracking-wider text-[#F7F3EE] transition-colors hover:text-mustard whitespace-nowrap"
               >
                 {link.label}
               </Link>
@@ -161,7 +166,7 @@ export function Header({ dict, locale }: HeaderProps) {
                 <Link
                   key={link.href}
                   href={`/${locale}/${link.href}`}
-                  className="block py-2 text-sm uppercase tracking-wide text-[#3D2817]"
+                  className="block py-2 text-sm uppercase tracking-wide text-[#3D2817] transition-colors hover:text-terracotta"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}

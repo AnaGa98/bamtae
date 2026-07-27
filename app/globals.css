@@ -5,6 +5,15 @@
 
 :root {
   /* BAMTAE Brand Colors */
+  --cream: #F3EEE6;
+  --cacao: #3B2A21;
+  --terracotta: #C1512F;
+  --terracotta-foreground: #F3EEE6;
+  --mustard: #D9A441;
+  --mustard-foreground: #412402;
+  --wine: #7A2E3A;
+  --wine-foreground: #F3EEE6;
+
   --background: #F7F3EE; /* Warm ivory/cream */
   --foreground: #1E1E1E; /* Soft black/dark charcoal */
   --card: #FFFFFF;
@@ -50,6 +59,14 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-cream: var(--cream);
+  --color-cacao: var(--cacao);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-foreground: var(--terracotta-foreground);
+  --color-mustard: var(--mustard);
+  --color-mustard-foreground: var(--mustard-foreground);
+  --color-wine: var(--wine);
+  --color-wine-foreground: var(--wine-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

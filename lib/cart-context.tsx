@@ -19,7 +19,6 @@ export interface CartItem {
   productId: string
   name: string
   color: string
-  size: string
   price: number
   quantity: number
   image: string
@@ -29,7 +28,6 @@ export type AddCartItemInput = {
   productId: string
   name: string
   color: string
-  size: string
   price: number
   image: string
 }
@@ -55,8 +53,8 @@ function formatColorLabel(color: string): string {
     .join(" ")
 }
 
-function createLineId(productId: string, color: string, size: string): string {
-  return `${productId}-${color.toLowerCase().trim()}-${size.toUpperCase()}`
+function createLineId(productId: string, color: string): string {
+  return `${productId}-${color.toLowerCase().trim()}`
 }
 
 export function formatCartPrice(price: number): string {
@@ -87,7 +85,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const addItem = useCallback((item: AddCartItemInput) => {
     const formattedColor = formatColorLabel(item.color)
-    const lineId = createLineId(item.productId, formattedColor, item.size)
+    const lineId = createLineId(item.productId, formattedColor)
 
     setItems((current) => {
       const existing = current.find((entry) => entry.id === lineId)
@@ -107,7 +105,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
           productId: item.productId,
           name: item.name,
           color: formattedColor,
-          size: item.size,
           price: item.price,
           quantity: 1,
           image: item.image,

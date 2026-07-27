@@ -38,6 +38,7 @@ export function BestSellers({ locale }: BestSellersProps) {
               id={product.id}
               name={product.name}
               price={product.price}
+              originalPrice={product.originalPrice}
               image={product.image}
               colors={product.colors}
               badge={product.badge}

@@ -19,15 +19,10 @@ function toPriceRange(price: number): "0-50000" | "50001-80000" | "80001+" {
 }
 
 export function CatalogoGrid({ locale, products, productImages }: CatalogoGridProps) {
-  const [selectedSizes, setSelectedSizes] = useState<string[]>([])
   const [selectedColors, setSelectedColors] = useState<string[]>([])
   const [selectedPrices, setSelectedPrices] = useState<string[]>([])
   const [sortBy, setSortBy] = useState<SortOption>("novedades")
 
-  const availableSizes = useMemo(
-    () => Array.from(new Set(products.flatMap((product) => product.sizes))).sort(),
-    [products]
-  )
   const availableColors = useMemo(
     () => Array.from(new Set(products.flatMap((product) => product.colors))).sort(),
     [products]
@@ -35,14 +30,12 @@ export function CatalogoGrid({ locale, products, productImages }: CatalogoGridPr
 
   const filteredProducts = useMemo(() => {
     const filtered = products.filter((product) => {
-      const matchSize =
-        selectedSizes.length === 0 || product.sizes.some((size) => selectedSizes.includes(size))
       const matchColor =
         selectedColors.length === 0 || product.colors.some((color) => selectedColors.includes(color))
       const matchPrice =
         selectedPrices.length === 0 || selectedPrices.includes(toPriceRange(product.price))
 
-      return matchSize && matchColor && matchPrice
+      return matchColor && matchPrice
     })
 
     return filtered.sort((a, b) => {
@@ -52,7 +45,7 @@ export function CatalogoGrid({ locale, products, productImages }: CatalogoGridPr
       if (a.is_new === b.is_new) return a.name.localeCompare(b.name, "es")
       return a.is_new ? -1 : 1
     })
-  }, [products, selectedSizes, selectedColors, selectedPrices, sortBy])
+  }, [products, selectedColors, selectedPrices, sortBy])
 
   const toggleFilter = (
     value: string,
@@ -91,25 +84,6 @@ export function CatalogoGrid({ locale, products, productImages }: CatalogoGridPr
           <h3 className="font-medium mb-4">Filtros</h3>
 
           <div className="space-y-5">
-            <div>
-              <p className="text-sm font-medium mb-2">Talla</p>
-              <div className="flex flex-wrap gap-2">
-                {availableSizes.map((size) => (
-                  <button
-                    key={size}
-                    onClick={() => toggleFilter(size, selectedSizes, setSelectedSizes)}
-                    className={`px-3 py-1.5 text-sm rounded border ${
-                      selectedSizes.includes(size)
-                        ? "border-[#8B6F47] bg-[#F7F3EE]"
-                        : "border-border hover:border-[#8B6F47]"
-                    }`}
-                  >
-                    {size}
-                  </button>
-                ))}
-              </div>
-            </div>
-
             <div>
               <p className="text-sm font-medium mb-2">Color</p>
               <div className="flex flex-wrap gap-2">
@@ -158,6 +132,7 @@ export function CatalogoGrid({ locale, products, productImages }: CatalogoGridPr
               id={product.id}
               name={product.name}
               price={product.price}
+              originalPrice={product.compare_at_price}
               image={productImages[product.id] ?? "/placeholder.svg"}
               colors={product.colors}
               badge={product.is_best_seller ? "Mas Vendido" : product.is_new ? "Nuevo" : undefined}

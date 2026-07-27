@@ -27,13 +27,13 @@ export function Hero({ locale }: HeroProps) {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href={`/${locale}/novedades`}
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#3D2817] text-[#F7F3EE] text-sm uppercase tracking-wider font-medium transition-opacity hover:opacity-90"
+                className="inline-flex items-center justify-center px-8 py-4 bg-terracotta text-terracotta-foreground text-sm uppercase tracking-wider font-medium transition-colors hover:bg-[#a84528]"
               >
                 VER COLECCIÓN
               </Link>
               <Link
                 href={`/${locale}/mas-vendidos`}
-                className="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-[#3D2817] text-[#3D2817] text-sm uppercase tracking-wider font-medium transition-opacity hover:opacity-90"
+                className="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-cacao text-cacao text-sm uppercase tracking-wider font-medium transition-colors hover:border-terracotta hover:bg-terracotta/10 hover:text-terracotta"
               >
                 MÁS VENDIDOS
               </Link>
@@ -57,7 +57,7 @@ export function Hero({ locale }: HeroProps) {
             </svg>
 
             <Image
-              src="/hero/hero-modelos.webp"
+              src="/hero/hero-modelos-transparentes.png"
               alt="Modelos diversas usando bodys BAMTAE"
               width={754}
               height={876}

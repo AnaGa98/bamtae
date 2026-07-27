@@ -47,8 +47,8 @@ export function ProductInfo() {
       {/* Title & Price */}
       <div>
         <div className="flex items-center gap-2 mb-2">
-          <span className="bg-[#6B4F43] text-white text-[10px] tracking-wider px-2 py-0.5">
-            BEST SELLER
+          <span className="bg-terracotta text-terracotta-foreground text-[10px] tracking-wider px-2 py-0.5 uppercase">
+            Más vendido
           </span>
           <div className="flex items-center gap-1">
             <div className="flex">
@@ -69,9 +69,9 @@ export function ProductInfo() {
           Our signature off-shoulder bodysuit with ruched mesh sleeves. Elegant, flattering, and perfect for day-to-night styling.
         </p>
         <div className="flex items-baseline gap-2">
-          <span className="text-xl font-medium text-[#1E1E1E]">$78.00</span>
-          <span className="text-sm text-[#B8A89C] line-through">$98.00</span>
-          <span className="text-xs text-[#6B4F43] font-medium">20% OFF</span>
+          <span className="text-xl font-medium text-wine">$78.00</span>
+          <span className="text-sm text-stone-400 line-through">$98.00</span>
+          <span className="text-xs text-wine font-medium">20% OFF</span>
         </div>
       </div>
 

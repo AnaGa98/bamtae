@@ -41,17 +41,17 @@ export function CollectionProductCard({
   const [isWishlisted, setIsWishlisted] = useState(false)
 
   const badgeStyles = {
-    bestseller: "bg-primary text-primary-foreground",
-    new: "bg-foreground text-background",
-    sale: "bg-red-600 text-white",
-    "low-stock": "bg-amber-600 text-white",
+    bestseller: "bg-terracotta text-terracotta-foreground",
+    new: "bg-mustard text-mustard-foreground",
+    sale: "bg-wine text-wine-foreground",
+    "low-stock": "bg-wine/90 text-wine-foreground",
   }
 
   const badgeLabels = {
-    bestseller: "Best Seller",
-    new: "New",
-    sale: "Sale",
-    "low-stock": "Low Stock",
+    bestseller: "Más vendido",
+    new: "Nuevo",
+    sale: "Oferta",
+    "low-stock": "Últimas unidades",
   }
 
   const discount = originalPrice
@@ -88,7 +88,13 @@ export function CollectionProductCard({
 
         {/* Discount badge */}
         {discount > 0 && !badge && (
-          <div className="absolute top-3 left-3 px-2.5 py-1 text-xs font-medium tracking-wide uppercase rounded bg-red-600 text-white">
+          <div className="absolute top-3 left-3 px-2.5 py-1 text-xs font-medium tracking-wide uppercase rounded bg-wine text-wine-foreground">
+            -{discount}%
+          </div>
+        )}
+
+        {discount > 0 && badge && (
+          <div className="absolute top-3 right-3 px-2.5 py-1 text-xs font-medium tracking-wide uppercase rounded bg-wine text-wine-foreground">
             -{discount}%
           </div>
         )}
@@ -165,11 +171,15 @@ export function CollectionProductCard({
 
         {/* Price */}
         <div className="flex items-center gap-2 mt-1.5">
-          <span className="text-sm font-semibold text-foreground">
+          <span
+            className={`text-sm font-semibold ${
+              originalPrice ? "text-wine" : "text-foreground"
+            }`}
+          >
             ${price.toFixed(2)}
           </span>
           {originalPrice && (
-            <span className="text-sm text-muted-foreground line-through">
+            <span className="text-sm text-stone-400 line-through">
               ${originalPrice.toFixed(2)}
             </span>
           )}

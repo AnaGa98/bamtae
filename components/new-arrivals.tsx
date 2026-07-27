@@ -73,6 +73,7 @@ export function NewArrivals({ locale, products }: NewArrivalsProps) {
               id={product.id}
               name={product.name}
               price={product.price}
+              originalPrice={product.originalPrice}
               image={product.image}
               colors={product.colors}
               badge={product.badge}
@@ -92,6 +93,7 @@ export function NewArrivals({ locale, products }: NewArrivalsProps) {
                 id={product.id}
                 name={product.name}
                 price={product.price}
+                originalPrice={product.originalPrice}
                 image={product.image}
                 colors={product.colors}
                 badge={product.badge}
