@@ -42,6 +42,8 @@ export function BestSellers({ locale }: BestSellersProps) {
               image={product.image}
               colors={product.colors}
               badge={product.badge}
+              rating={product.rating}
+              reviewCount={product.reviewCount}
               href={`/${locale}/producto/${product.slug}`}
             />
           ))}

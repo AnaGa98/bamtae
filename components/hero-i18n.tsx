@@ -1,11 +1,18 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Star } from "lucide-react"
 import type { Dictionary } from "@/lib/dictionaries"
 import type { Locale } from "@/lib/i18n"
 
 interface HeroProps {
   dict: Dictionary
   locale: Locale
+}
+
+/** Placeholder social proof — update when real customer/review totals are available. */
+const SOCIAL_PROOF = {
+  customersLabel: "+5.000 mujeres en Colombia ya confían en BAMTAE",
+  rating: 4.8,
 }
 
 export function Hero({ locale }: HeroProps) {
@@ -17,13 +24,36 @@ export function Hero({ locale }: HeroProps) {
             <p className="text-sm uppercase tracking-widest text-[#3D2817] mb-6">
               NUEVA COLECCIÓN
             </p>
-            <h1 className="font-serif font-bold text-5xl lg:text-7xl uppercase text-[#1A1A1A] leading-tight mb-6">
-              ESCULPE TU CONFIANZA
+            <h1 className="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl text-[#1A1A1A] leading-tight mb-6 text-balance">
+              Bodys esculturales que realzan tu figura. Esculpe tu confianza.
             </h1>
-            <p className="text-base md:text-lg text-stone-600 leading-relaxed max-w-md mb-8">
+            <p className="text-base md:text-lg text-stone-600 leading-relaxed max-w-md mb-5">
               Nuestros bodys de lujo realzan tu silueta y te acompañan sin esfuerzo del día a
               la noche. Encuentra tu ajuste perfecto.
             </p>
+
+            {/* Placeholder: replace rating/customer count with real metrics when available */}
+            <p
+              className="flex flex-wrap items-center gap-2 text-sm text-[#3D2817] mb-8"
+              title="Placeholder — actualizar con número real de clientas/reseñas"
+            >
+              <span className="inline-flex items-center gap-0.5 text-mustard" aria-hidden="true">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star
+                    key={star}
+                    className={`w-3.5 h-3.5 ${
+                      star <= Math.floor(SOCIAL_PROOF.rating)
+                        ? "fill-current"
+                        : "fill-mustard/30 text-mustard/40"
+                    }`}
+                  />
+                ))}
+              </span>
+              <span className="font-medium">{SOCIAL_PROOF.rating}</span>
+              <span className="text-stone-500">·</span>
+              <span>{SOCIAL_PROOF.customersLabel}</span>
+            </p>
+
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href={`/${locale}/novedades`}

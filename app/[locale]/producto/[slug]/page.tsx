@@ -5,7 +5,8 @@ import { ProductoDetalle } from "@/components/producto-detalle"
 import { getDictionary } from "@/lib/dictionaries"
 import type { Locale } from "@/lib/i18n"
 import { getAllProducts, getProductBySlug } from "@/lib/products"
-import { getProductImages } from "@/lib/product-images"
+import { getPrimaryProductImage, getProductImages } from "@/lib/product-images"
+import { JsonLd, getProductJsonLd } from "@/lib/seo/json-ld"
 
 export async function generateStaticParams() {
   return getAllProducts().map((product) => ({
@@ -47,9 +48,25 @@ export default async function ProductoPage({
   }
 
   const { allImages, imagesByColor } = getProductImages(product)
+  const primaryImage = getPrimaryProductImage(product)
+  const rating = "rating" in product ? Number(product.rating) : 4.8
+  const reviewCount = "reviewCount" in product ? Number(product.reviewCount) : 120
+
+  const productJsonLd = getProductJsonLd({
+    name: product.name,
+    slug: product.slug,
+    description: product.description,
+    price: product.price,
+    in_stock: product.in_stock,
+    rating,
+    reviewCount,
+    image: allImages.length > 0 ? allImages : primaryImage,
+    locale,
+  })
 
   return (
     <>
+      <JsonLd id={`product-jsonld-${product.slug}`} data={productJsonLd} />
       <Header dict={dict} locale={locale} />
       <main className="min-h-screen bg-white">
         <ProductoDetalle

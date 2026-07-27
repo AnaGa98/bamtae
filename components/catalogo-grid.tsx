@@ -136,6 +136,8 @@ export function CatalogoGrid({ locale, products, productImages }: CatalogoGridPr
               image={productImages[product.id] ?? "/placeholder.svg"}
               colors={product.colors}
               badge={product.is_best_seller ? "Mas Vendido" : product.is_new ? "Nuevo" : undefined}
+              rating={"rating" in product ? Number(product.rating) : 4.8}
+              reviewCount={"reviewCount" in product ? Number(product.reviewCount) : 120}
               href={`/${locale}/producto/${product.slug}`}
             />
           ))}

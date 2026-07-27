@@ -107,7 +107,9 @@
         "tirantes",
         "ruched",
         "escultural"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 101
     },
     {
       "id": "star",
@@ -133,7 +135,9 @@
         "body",
         "manga corta",
         "básico"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 162
     },
     {
       "id": "alma",
@@ -157,7 +161,9 @@
       "tags": [
         "body",
         "básico"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 131
     },
     {
       "id": "siena",
@@ -182,7 +188,9 @@
       "tags": [
         "body",
         "moldeador"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 158
     },
     {
       "id": "lia",
@@ -206,7 +214,9 @@
       ],
       "tags": [
         "body"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 120
     },
     {
       "id": "aura",
@@ -231,7 +241,9 @@
       "tags": [
         "body",
         "escote"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 145
     },
     {
       "id": "galaxy",
@@ -256,7 +268,9 @@
       "tags": [
         "body",
         "manga larga"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 96
     },
     {
       "id": "curve",
@@ -280,7 +294,9 @@
       "tags": [
         "body",
         "strapless"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 89
     },
     {
       "id": "rose",
@@ -305,7 +321,9 @@
       "tags": [
         "body",
         "femenino"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 161
     },
     {
       "id": "daisy",
@@ -330,7 +348,9 @@
       "tags": [
         "body",
         "básico"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 168
     },
     {
       "id": "bloom",
@@ -355,7 +375,9 @@
       "tags": [
         "body",
         "femenino"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 167
     },
     {
       "id": "nube",
@@ -380,7 +402,9 @@
       "tags": [
         "body",
         "suave"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 146
     },
     {
       "id": "mia",
@@ -404,7 +428,9 @@
       ],
       "tags": [
         "body"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 121
     },
     {
       "id": "velvet",
@@ -430,7 +456,9 @@
         "vestido",
         "strapless",
         "evento"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 112
     },
     {
       "id": "icon",
@@ -456,7 +484,9 @@
         "body",
         "escote V",
         "cruzado"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 145
     },
     {
       "id": "honey",
@@ -480,7 +510,9 @@
       ],
       "tags": [
         "body"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 87
     },
     {
       "id": "soft",
@@ -505,384 +537,9 @@
       "tags": [
         "body",
         "manga"
-      ]
-    },
-    {
-      "id": "flow",
-      "name": "Flow",
-      "category": "bodys",
-      "subcategory": "body caído",
-      "price": 48000,
-      "compare_at_price": null,
-      "description": "Body con caída fluida y diseño relajado. Comodidad con estilo.",
-      "colors": [
-        "Negro",
-        "Beige"
       ],
-      "is_new": false,
-      "is_best_seller": false,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/flow-1.jpg"
-      ],
-      "tags": [
-        "body",
-        "caído"
-      ]
-    },
-    {
-      "id": "vibe",
-      "name": "Vibe",
-      "category": "blusas",
-      "subcategory": "blusa pico",
-      "price": 32000,
-      "compare_at_price": null,
-      "description": "Blusa con escote pico, corte favorecedor. Combínala con jeans o faldas.",
-      "colors": [
-        "Blanco",
-        "Negro",
-        "Beige"
-      ],
-      "is_new": false,
-      "is_best_seller": false,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/vibe-1.jpg"
-      ],
-      "tags": [
-        "blusa",
-        "escote pico"
-      ]
-    },
-    {
-      "id": "amour",
-      "name": "Amour",
-      "category": "bodys",
-      "subcategory": "body corazón",
-      "price": 55000,
-      "compare_at_price": null,
-      "description": "Body con escote corazón. Romántico y favorecedor.",
-      "colors": [
-        "Rojo",
-        "Negro",
-        "Vino"
-      ],
-      "is_new": false,
-      "is_best_seller": true,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/amour-1.jpg"
-      ],
-      "tags": [
-        "body",
-        "escote corazón",
-        "romántico"
-      ]
-    },
-    {
-      "id": "olive",
-      "name": "Olive",
-      "category": "bodys",
-      "subcategory": "body",
-      "price": 40000,
-      "compare_at_price": null,
-      "description": "Body básico al mejor precio. Calidad premium accesible.",
-      "colors": [
-        "Verde oliva",
-        "Negro",
-        "Beige"
-      ],
-      "is_new": false,
-      "is_best_seller": false,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/olive-1.jpg"
-      ],
-      "tags": [
-        "body",
-        "básico"
-      ]
-    },
-    {
-      "id": "luxe",
-      "name": "Luxe",
-      "category": "vestidos",
-      "subcategory": "vestido",
-      "price": 55000,
-      "compare_at_price": null,
-      "description": "Vestido elegante con fit favorecedor. Para sentirte de lujo.",
-      "colors": [
-        "Negro",
-        "Vino",
-        "Beige"
-      ],
-      "is_new": true,
-      "is_best_seller": false,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/luxe-1.jpg"
-      ],
-      "tags": [
-        "vestido",
-        "elegante"
-      ]
-    },
-    {
-      "id": "air",
-      "name": "Air",
-      "category": "blusas",
-      "subcategory": "blusa caída",
-      "price": 40000,
-      "compare_at_price": null,
-      "description": "Blusa de caída suave y ligera. Cómoda y favorecedora.",
-      "colors": [
-        "Blanco",
-        "Beige",
-        "Negro"
-      ],
-      "is_new": false,
-      "is_best_seller": false,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/air-1.jpg"
-      ],
-      "tags": [
-        "blusa",
-        "caída"
-      ]
-    },
-    {
-      "id": "pure",
-      "name": "Pure",
-      "category": "bodys",
-      "subcategory": "body",
-      "price": 48000,
-      "compare_at_price": null,
-      "description": "Body básico de líneas limpias. Pure essential.",
-      "colors": [
-        "Blanco",
-        "Negro",
-        "Beige"
-      ],
-      "is_new": false,
-      "is_best_seller": false,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/pure-1.jpg"
-      ],
-      "tags": [
-        "body",
-        "básico"
-      ]
-    },
-    {
-      "id": "diva",
-      "name": "Diva",
-      "category": "bodys",
-      "subcategory": "body",
-      "price": 48000,
-      "compare_at_price": null,
-      "description": "Body con actitud. Para la diva que llevas dentro.",
-      "colors": [
-        "Negro",
-        "Vino",
-        "Rojo"
-      ],
-      "is_new": false,
-      "is_best_seller": false,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/diva-1.jpg"
-      ],
-      "tags": [
-        "body",
-        "statement"
-      ]
-    },
-    {
-      "id": "eclipse-set",
-      "name": "Eclipse Set",
-      "category": "conjuntos",
-      "subcategory": "set body + prenda",
-      "price": 80000,
-      "compare_at_price": null,
-      "description": "Conjunto coordinado de dos piezas. Body y prenda inferior que se complementan a la perfección.",
-      "colors": [
-        "Negro",
-        "Beige",
-        "Café"
-      ],
-      "is_new": true,
-      "is_best_seller": false,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/eclipse-set-1.jpg"
-      ],
-      "tags": [
-        "conjunto",
-        "set",
-        "coordinado"
-      ]
-    },
-    {
-      "id": "fit",
-      "name": "Fit",
-      "category": "bodys",
-      "subcategory": "body costillero",
-      "price": 46000,
-      "compare_at_price": null,
-      "description": "Body en tela costillera con fit ajustado. Comodidad y estilo.",
-      "colors": [
-        "Negro",
-        "Blanco",
-        "Beige"
-      ],
-      "is_new": false,
-      "is_best_seller": false,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/fit-1.jpg"
-      ],
-      "tags": [
-        "body",
-        "costillero",
-        "ribbed"
-      ]
-    },
-    {
-      "id": "butterfly",
-      "name": "Butterfly",
-      "category": "bodys",
-      "subcategory": "body",
-      "price": 32000,
-      "compare_at_price": null,
-      "description": "Body delicado y femenino. Como una mariposa.",
-      "colors": [
-        "Rosa",
-        "Blanco",
-        "Negro"
-      ],
-      "is_new": false,
-      "is_best_seller": false,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/butterfly-1.jpg"
-      ],
-      "tags": [
-        "body",
-        "femenino"
-      ]
-    },
-    {
-      "id": "glow",
-      "name": "Glow",
-      "category": "bodys",
-      "subcategory": "body",
-      "price": 48000,
-      "compare_at_price": null,
-      "description": "Body que te hace brillar. Diseño favorecedor y cómodo.",
-      "colors": [
-        "Beige",
-        "Negro",
-        "Vino"
-      ],
-      "is_new": false,
-      "is_best_seller": false,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/glow-1.jpg"
-      ],
-      "tags": [
-        "body"
-      ]
-    },
-    {
-      "id": "sky",
-      "name": "Sky",
-      "category": "bodys",
-      "subcategory": "body",
-      "price": 38000,
-      "compare_at_price": null,
-      "description": "Body básico al mejor precio. Cielo de comodidad.",
-      "colors": [
-        "Azul cielo",
-        "Blanco",
-        "Negro"
-      ],
-      "is_new": false,
-      "is_best_seller": false,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/sky-1.jpg"
-      ],
-      "tags": [
-        "body",
-        "básico"
-      ]
-    },
-    {
-      "id": "queen-set",
-      "name": "Queen Set",
-      "category": "conjuntos",
-      "subcategory": "conjunto trío",
-      "price": 105000,
-      "compare_at_price": null,
-      "description": "Conjunto trío premium. Tres piezas coordinadas que crean múltiples looks. Pieza statement de BAMTAE.",
-      "colors": [
-        "Negro",
-        "Beige"
-      ],
-      "is_new": true,
-      "is_best_seller": true,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/queen-set-1.jpg"
-      ],
-      "tags": [
-        "conjunto",
-        "trío",
-        "premium",
-        "statement"
-      ]
-    },
-    {
-      "id": "muse-set",
-      "name": "Muse Set",
-      "category": "conjuntos",
-      "subcategory": "set body",
-      "price": 85000,
-      "compare_at_price": null,
-      "description": "Set inspirador con body coordinado. Para la musa que eres.",
-      "colors": [
-        "Negro",
-        "Vino",
-        "Beige"
-      ],
-      "is_new": true,
-      "is_best_seller": false,
-      "is_on_sale": false,
-      "in_stock": true,
-      "images": [
-        "/products/muse-set-1.jpg"
-      ],
-      "tags": [
-        "conjunto",
-        "set"
-      ]
+      "rating": 4.8,
+      "reviewCount": 164
     },
     {
       "id": "nova",
@@ -908,7 +565,9 @@
         "croptop",
         "top",
         "statement"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 156
     },
     {
       "id": "esmeralda-set",
@@ -934,7 +593,9 @@
         "set",
         "dúo",
         "esmeralda"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 139
     },
     {
       "id": "hermoso-k",
@@ -959,7 +620,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 97
     },
     {
       "id": "body-angel",
@@ -985,7 +648,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 84
     },
     {
       "id": "sasha-manga-corta",
@@ -1010,7 +675,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 131
     },
     {
       "id": "pamela",
@@ -1033,7 +700,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 164
     },
     {
       "id": "magaly",
@@ -1057,7 +726,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 85
     },
     {
       "id": "deysi",
@@ -1081,7 +752,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 82
     },
     {
       "id": "mono",
@@ -1104,7 +777,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 161
     },
     {
       "id": "martina",
@@ -1128,7 +803,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 108
     },
     {
       "id": "body-ck",
@@ -1152,7 +829,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 131
     },
     {
       "id": "atenea",
@@ -1175,7 +854,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 162
     },
     {
       "id": "monaco-set",
@@ -1198,7 +879,9 @@
       "tags": [
         "conjunto",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 104
     },
     {
       "id": "contour",
@@ -1221,7 +904,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 138
     },
     {
       "id": "harmony-set",
@@ -1245,7 +930,9 @@
       "tags": [
         "conjunto",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 143
     },
     {
       "id": "urban-set",
@@ -1268,7 +955,9 @@
       "tags": [
         "conjunto",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 93
     },
     {
       "id": "adara-set",
@@ -1293,7 +982,9 @@
       "tags": [
         "conjunto",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 152
     },
     {
       "id": "noir-set",
@@ -1317,7 +1008,9 @@
       "tags": [
         "conjunto",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 87
     },
     {
       "id": "moon",
@@ -1341,7 +1034,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 161
     },
     {
       "id": "empire-set",
@@ -1365,7 +1060,9 @@
       "tags": [
         "conjunto",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 109
     },
     {
       "id": "amelia-plus",
@@ -1392,7 +1089,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 114
     },
     {
       "id": "selene-plus",
@@ -1417,7 +1116,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 133
     },
     {
       "id": "majestic-plus",
@@ -1441,7 +1142,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 165
     },
     {
       "id": "prisma-set",
@@ -1467,7 +1170,9 @@
       "tags": [
         "conjunto",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 119
     },
     {
       "id": "silhouette",
@@ -1490,7 +1195,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 94
     },
     {
       "id": "milano-set",
@@ -1514,7 +1221,9 @@
       "tags": [
         "conjunto",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 107
     },
     {
       "id": "nova-set",
@@ -1541,7 +1250,9 @@
       "tags": [
         "conjunto",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 83
     },
     {
       "id": "zen-set",
@@ -1566,7 +1277,9 @@
       "tags": [
         "conjunto",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 160
     },
     {
       "id": "empress-corset",
@@ -1590,7 +1303,9 @@
       "tags": [
         "body",
         "nuevo"
-      ]
+      ],
+      "rating": 4.8,
+      "reviewCount": 108
     }
   ],
   "testimonials": [
@@ -1632,28 +1347,98 @@
   ],
   "faq": [
     {
-      "q": "¿Hacen envíos a toda Colombia?",
-      "a": "Sí, enviamos a todo el país con Servientrega e Interrapidísimo. Medellín y Área Metropolitana: 1-2 días hábiles. Resto del país: 2-4 días hábiles."
+      "section": "Compra y tallas",
+      "items": [
+        {
+          "q": "¿Cómo sé cuál es mi talla?",
+          "a": "Todo es talla única. Escríbenos por WhatsApp y te ayudamos con las dudas."
+        },
+        {
+          "q": "¿Los bodys se transparentan o marcan?",
+          "a": "Nuestras telas son premium y no se transparentan con el uso normal. Cada ficha de producto indica el nivel de compresión y el tipo de tela."
+        },
+        {
+          "q": "¿El body se enrolla o se sube con el uso?",
+          "a": "Nuestros diseños están pensados para mantenerse en su lugar durante todo el día, incluso en movimiento."
+        }
+      ]
     },
     {
-      "q": "¿Cómo puedo pagar?",
-      "a": "En Medellín y Área Metropolitana puedes pagar contraentrega en efectivo o por transferencia (Nequi o Bancolombia). En el resto del país solo aceptamos transferencia."
+      "section": "Pagos",
+      "items": [
+        {
+          "q": "¿Qué métodos de pago aceptan?",
+          "a": "Aceptamos tarjeta débito, tarjeta crédito, PSE, Nequi y pago contraentrega en ciudades con cobertura."
+        },
+        {
+          "q": "¿Puedo pagar contra entrega?",
+          "a": "Sí, disponible en Medellín y Área Metropolitana. Para el resto del país, el pago se hace en línea antes del envío."
+        },
+        {
+          "q": "¿Es seguro comprar en su página?",
+          "a": "Sí, todos los pagos se procesan por pasarelas seguras certificadas. Nunca solicitamos datos de tu tarjeta por WhatsApp o redes sociales."
+        }
+      ]
     },
     {
-      "q": "¿Tienen tienda física?",
-      "a": "Estamos ubicadas en Carrera 43B, La Gabriela, Bello (Antioquia). Por ahora vendemos solo online, pero diseñamos y despachamos desde Bello para toda Colombia."
+      "section": "Envíos",
+      "items": [
+        {
+          "q": "¿Cuánto tarda en llegar mi pedido?",
+          "a": "Entre 1 y 4 días hábiles a toda Colombia."
+        },
+        {
+          "q": "¿Cuánto cuesta el envío?",
+          "a": "Envío gratis en pedidos sobre $500.000. Para pedidos menores, el costo se calcula según destino al finalizar la compra."
+        },
+        {
+          "q": "¿Cómo rastreo mi pedido?",
+          "a": "Te enviamos el número de guía por correo electrónico apenas se despache tu pedido."
+        }
+      ]
     },
     {
-      "q": "¿Cuánto cuesta el envío?",
-      "a": "El envío tiene un costo según tu ciudad. En pedidos sobre $200.000 el envío es gratis a toda Colombia."
+      "section": "Cambios y devoluciones",
+      "items": [
+        {
+          "q": "¿Puedo cambiar una prenda si no me quedó bien?",
+          "a": "Sí, tienes 8 días desde que recibes tu pedido para solicitar un cambio, siempre que la prenda esté sin usar y con sus etiquetas."
+        },
+        {
+          "q": "¿Qué es el derecho de retracto?",
+          "a": "Según la ley colombiana, tienes hasta 5 días hábiles después de recibir tu pedido para solicitar la devolución del dinero, sin necesidad de justificar el motivo."
+        },
+        {
+          "q": "¿Cómo solicito un cambio o devolución?",
+          "a": "Escríbenos por WhatsApp con tu número de pedido y te guiamos en el proceso."
+        }
+      ]
     },
     {
-      "q": "¿Puedo cambiar la talla si no me queda?",
-      "a": "Sí, tienes 8 días desde que recibes tu pedido para solicitar cambio. La prenda debe estar sin uso, con etiquetas. El envío del cambio lo asume el cliente."
+      "section": "Producto y cuidado",
+      "items": [
+        {
+          "q": "¿De qué material están hechos los bodys?",
+          "a": "[Completar con la composición real de la tela, ej. Nylon-spandex de compresión suave]"
+        },
+        {
+          "q": "¿Cómo debo lavar mis prendas?",
+          "a": "Lavado a mano o en máquina con ciclo delicado, agua fría, sin secadora, para conservar la compresión y elasticidad de la tela."
+        }
+      ]
     },
     {
-      "q": "¿Cómo sé qué talla elegir?",
-      "a": "Revisa nuestra guía de tallas en el menú o en cada producto. Si dudas entre dos tallas, te recomendamos la mayor."
+      "section": "Otras preguntas",
+      "items": [
+        {
+          "q": "¿Tienen tienda física?",
+          "a": "Actualmente vendemos solo en línea, con envíos a toda Colombia desde Medellín."
+        },
+        {
+          "q": "¿Cómo los contacto si tengo dudas?",
+          "a": "Por WhatsApp desde el botón flotante en la página, o al +57 304 575 4727."
+        }
+      ]
     }
   ]
 }

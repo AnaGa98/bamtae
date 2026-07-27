@@ -10,6 +10,8 @@ export type HomeProductCard = {
   colors: string[]
   image: string
   badge?: "Mas Vendido" | "Nuevo"
+  rating?: number
+  reviewCount?: number
 }
 
 export function toHomeProductCard(
@@ -25,5 +27,7 @@ export function toHomeProductCard(
     colors: product.colors,
     image: getPrimaryProductImage(product),
     badge,
+    rating: "rating" in product ? Number(product.rating) : 4.8,
+    reviewCount: "reviewCount" in product ? Number(product.reviewCount) : 120,
   }
 }
