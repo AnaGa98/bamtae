@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   verification: {
-    google: "zChZ62TvMHYKl0daxlgn9gDKVuKuUYCt_MxB",
+    google: "zChZ62TvMHYKl0daxIgn9gDKVUKuUYCt_MxBAmQsfww",
   },
 }
 
