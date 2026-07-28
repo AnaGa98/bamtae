@@ -24,9 +24,7 @@ export function getOrganizationJsonLd() {
     url: SITE_URL,
     logo: `${SITE_URL}/placeholder-logo.png`,
     sameAs: [
-      "https://instagram.com/bamtae",
-      "https://facebook.com/bamtae",
-      "https://tiktok.com/@bamtae",
+      "https://www.instagram.com/bamtae.98/",
     ],
     address: {
       "@type": "PostalAddress",
