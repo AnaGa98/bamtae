@@ -31,6 +31,9 @@ export const metadata: Metadata = {
     default: "BAMTAE",
     template: "%s",
   },
+  verification: {
+    google: "zChZ62TvMHYKl0daxlgn9gDKVuKuUYCt_MxB",
+  },
 }
 
 export const viewport: Viewport = {
