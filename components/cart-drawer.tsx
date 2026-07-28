@@ -15,53 +15,13 @@ import {
 } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
-import { Separator } from "@/components/ui/separator"
 import {
   formatCartPrice,
   FREE_SHIPPING_THRESHOLD,
   useCart,
 } from "@/lib/cart-context"
+import { buildWhatsAppCheckoutUrl } from "@/lib/whatsapp-checkout"
 import type { Locale } from "@/lib/i18n"
-import type { CartItem } from "@/lib/cart-context"
-
-const WHATSAPP_NUMBER = "573045754727"
-
-function formatCOP(amount: number) {
-  return new Intl.NumberFormat("es-CO", {
-    style: "currency",
-    currency: "COP",
-    maximumFractionDigits: 0,
-  }).format(amount)
-}
-
-function buildWhatsAppCheckoutUrl(items: CartItem[], city: string) {
-  if (items.length === 0) return ""
-
-  const productLines = items
-    .map(
-      (item) =>
-        `• ${item.name} - ${item.color} (${formatCOP(item.price)}) x${item.quantity}`
-    )
-    .join("\n")
-
-  const subtotal = items.reduce((acc, item) => acc + item.price * item.quantity, 0)
-  const isFreeShipping = subtotal >= FREE_SHIPPING_THRESHOLD
-  const shippingLine = isFreeShipping ? "🚚 Envío: ¡Gratis!" : "🚚 Envío: Por confirmar"
-  const cityLine = city.trim() ? `📍 Ciudad: ${city.trim()}\n` : ""
-
-  const message = `Hola BAMTAE 💚 Quiero hacer este pedido:
-
-🛍️ Mi pedido:
-${productLines}
-
-${cityLine}📦 Subtotal: ${formatCOP(subtotal)}
-${shippingLine}
-💰 Total: ${formatCOP(subtotal)}
-
-¿Me ayudan a finalizar la compra?`
-
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
-}
 
 function WhatsAppIcon() {
   return (
@@ -70,21 +30,6 @@ function WhatsAppIcon() {
     </svg>
   )
 }
-
-const recommendedProducts = [
-  {
-    id: "r1",
-    name: "Twist Front Mesh Body",
-    price: 74,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-5wwjBHhneRLR53vdFplqz2rPJCsaYC.png",
-  },
-  {
-    id: "r2",
-    name: "Halter Cut-Out Body",
-    price: 82,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ONt1UYQRwsTPDfGaXza53BV74O0BgM.png",
-  },
-]
 
 export function CartDrawer() {
   const params = useParams()
@@ -119,8 +64,6 @@ export function CartDrawer() {
     awayFromFree: "Te faltan",
     forFreeShipping: "para envío gratis",
     unlockedFreeShipping: "¡Has desbloqueado envío gratis!",
-    completeYourLook: "Completa Tu Look",
-    quickAdd: "Agregar",
     subtotal: "Subtotal",
     secureOrder: "Pedido seguro",
     contactMessage: "Te contactaremos para confirmar tu compra",
@@ -201,15 +144,14 @@ export function CartDrawer() {
                       <h4 className="text-sm font-medium text-foreground truncate">
                         {item.name}
                       </h4>
-                      <p className="text-xs text-muted-foreground mt-0.5">
-                        {item.color}
-                      </p>
+                      <p className="text-xs text-muted-foreground mt-0.5">{item.color}</p>
                       <p className="text-sm font-medium text-foreground mt-1">
-                        {formatCartPrice(item.price)}
+                        {item.price > 0 ? formatCartPrice(item.price) : "Precio por confirmar"}
                       </p>
                       <div className="flex items-center gap-3 mt-2">
                         <div className="flex items-center border border-border rounded-full">
                           <button
+                            type="button"
                             onClick={() => updateQuantity(item.id, -1)}
                             className="w-7 h-7 flex items-center justify-center text-foreground/70 hover:text-foreground transition-colors"
                             aria-label="Disminuir cantidad"
@@ -218,6 +160,7 @@ export function CartDrawer() {
                           </button>
                           <span className="w-6 text-center text-sm">{item.quantity}</span>
                           <button
+                            type="button"
                             onClick={() => updateQuantity(item.id, 1)}
                             className="w-7 h-7 flex items-center justify-center text-foreground/70 hover:text-foreground transition-colors"
                             aria-label="Aumentar cantidad"
@@ -226,6 +169,7 @@ export function CartDrawer() {
                           </button>
                         </div>
                         <button
+                          type="button"
                           onClick={() => removeItem(item.id)}
                           className="text-muted-foreground hover:text-foreground transition-colors"
                           aria-label="Eliminar producto"
@@ -236,30 +180,6 @@ export function CartDrawer() {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-8">
-                <Separator className="mb-6" />
-                <h4 className="font-serif text-base mb-4">{texts.completeYourLook}</h4>
-                <div className="grid grid-cols-2 gap-3">
-                  {recommendedProducts.map((product) => (
-                    <div key={product.id} className="group">
-                      <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-secondary mb-2">
-                        <Image
-                          src={product.image}
-                          alt={product.name}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <button className="absolute bottom-2 left-2 right-2 bg-background/95 backdrop-blur-sm text-foreground text-xs font-medium py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                          {texts.quickAdd}
-                        </button>
-                      </div>
-                      <p className="text-xs text-foreground truncate">{product.name}</p>
-                      <p className="text-xs text-muted-foreground">{formatCartPrice(product.price)}</p>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
 

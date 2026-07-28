@@ -88,7 +88,11 @@ export function ProductCard({
     }
   }
 
+  const hasListedPrice = price > 0
+
   const addToCart = (color: string) => {
+    if (!hasListedPrice) return
+
     addItem({
       productId: id,
       name,
@@ -103,6 +107,8 @@ export function ProductCard({
   const handleQuickAdd = (event: React.MouseEvent) => {
     event.preventDefault()
     event.stopPropagation()
+
+    if (!hasListedPrice) return
 
     if (colors.length === 1) {
       addToCart(colors[0])
@@ -237,14 +243,23 @@ export function ProductCard({
             <span className="sm:hidden">Ver</span>
             <span className="hidden sm:inline">Ver producto</span>
           </Link>
-          <button
-            type="button"
-            onClick={handleQuickAdd}
-            className="flex items-center justify-center gap-1.5 py-2.5 text-xs uppercase tracking-wider bg-terracotta text-terracotta-foreground rounded hover:bg-[#a84528] transition-colors"
-          >
-            <ShoppingBag className="w-3.5 h-3.5" />
-            Agregar
-          </button>
+          {hasListedPrice ? (
+            <button
+              type="button"
+              onClick={handleQuickAdd}
+              className="flex items-center justify-center gap-1.5 py-2.5 text-xs uppercase tracking-wider bg-terracotta text-terracotta-foreground rounded hover:bg-[#a84528] transition-colors"
+            >
+              <ShoppingBag className="w-3.5 h-3.5" />
+              Agregar
+            </button>
+          ) : (
+            <Link
+              href={href}
+              className="flex items-center justify-center gap-1.5 py-2.5 text-xs uppercase tracking-wider bg-terracotta text-terracotta-foreground rounded hover:bg-[#a84528] transition-colors"
+            >
+              Consultar
+            </Link>
+          )}
         </div>
       </div>
     </div>

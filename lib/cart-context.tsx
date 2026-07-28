@@ -84,6 +84,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [items, isHydrated])
 
   const addItem = useCallback((item: AddCartItemInput) => {
+    // Unpriced catalog items must be handled via WhatsApp inquiry, not cart.
+    if (!Number.isFinite(item.price) || item.price <= 0) return
+
     const formattedColor = formatColorLabel(item.color)
     const lineId = createLineId(item.productId, formattedColor)
 

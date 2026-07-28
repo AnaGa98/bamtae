@@ -28,7 +28,7 @@ export function Footer({ dict, locale }: FooterProps) {
   ]
 
   const aboutLinks = [
-    { label: dict.footer.about.ourStory, href: `/${locale}/about` },
+    { label: dict.footer.about.ourStory, href: `/${locale}/sobre-nosotros` },
     { label: dict.footer.about.sustainability, href: `/${locale}/sustainability` },
     { label: dict.footer.about.careers, href: `/${locale}/careers` },
     { label: dict.footer.about.press, href: `/${locale}/press` },

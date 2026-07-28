@@ -7,6 +7,7 @@ import { MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { formatPriceCop, Product } from "@/lib/products"
 import { useCart } from "@/lib/cart-context"
+import { buildWhatsAppProductInquiryUrl } from "@/lib/whatsapp-checkout"
 
 interface ProductoDetalleProps {
   locale: string
@@ -14,8 +15,6 @@ interface ProductoDetalleProps {
   images: string[]
   imagesByColor: Record<string, string[]>
 }
-
-const WHATSAPP_LINK = "https://wa.me/573045754727"
 
 export function ProductoDetalle({
   locale,
@@ -26,6 +25,8 @@ export function ProductoDetalle({
   const [selectedColor, setSelectedColor] = useState(product.colors[0] ?? "")
   const [activeImage, setActiveImage] = useState(0)
   const { addItem, setIsOpen } = useCart()
+  const hasListedPrice = product.price > 0
+  const inquiryColor = selectedColor || product.colors[0] || "Único"
 
   const galleryImages = useMemo(() => {
     const colorImages = imagesByColor[selectedColor] ?? []
@@ -93,7 +94,9 @@ export function ProductoDetalle({
             <h1 className="font-serif text-3xl text-foreground">{product.name}</h1>
             <p className="mt-3 text-muted-foreground">{product.description}</p>
             <p className="mt-4 text-2xl font-semibold text-foreground">
-              {product.compare_at_price && product.compare_at_price > product.price ? (
+              {!hasListedPrice ? (
+                <span className="text-lg font-medium text-[#AF6D4E]">Precio por confirmar</span>
+              ) : product.compare_at_price && product.compare_at_price > product.price ? (
                 <span className="inline-flex items-baseline gap-3">
                   <span className="text-wine">${formatPriceCop(product.price)}</span>
                   <span className="text-lg font-normal text-stone-400 line-through">
@@ -151,38 +154,56 @@ export function ProductoDetalle({
           </div>
 
           <div className="grid sm:grid-cols-2 gap-3">
+            {hasListedPrice ? (
+              <Button
+                className="h-12 bg-terracotta hover:bg-[#a84528] text-terracotta-foreground"
+                onClick={() => {
+                  if (product.colors.length > 1 && !selectedColor) {
+                    alert("Por favor selecciona un color")
+                    return
+                  }
+
+                  const color = inquiryColor
+                  const image =
+                    galleryImages[activeImage] ??
+                    galleryImages[0] ??
+                    images[0] ??
+                    "/placeholder.svg"
+
+                  addItem({
+                    productId: product.id,
+                    name: product.name,
+                    color,
+                    price: product.price,
+                    image,
+                  })
+                  setIsOpen(true)
+                }}
+              >
+                Añadir al carrito
+              </Button>
+            ) : (
+              <Button
+                className="h-12 bg-terracotta hover:bg-[#a84528] text-terracotta-foreground"
+                asChild
+              >
+                <a
+                  href={buildWhatsAppProductInquiryUrl(product.name, inquiryColor)}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  Consultar precio
+                </a>
+              </Button>
+            )}
             <Button
-              className="h-12 bg-terracotta hover:bg-[#a84528] text-terracotta-foreground"
-              onClick={() => {
-                if (product.colors.length > 1 && !selectedColor) {
-                  alert("Por favor selecciona un color")
-                  return
-                }
-
-                const color = selectedColor || product.colors[0] || "Único"
-                const image =
-                  galleryImages[activeImage] ??
-                  galleryImages[0] ??
-                  images[0] ??
-                  "/placeholder.svg"
-
-                addItem({
-                  productId: product.id,
-                  name: product.name,
-                  color,
-                  price: product.price,
-                  image,
-                })
-                setIsOpen(true)
-              }}
+              asChild
+              variant="outline"
+              className="h-12 border-cacao text-cacao hover:border-terracotta hover:bg-terracotta/10 hover:text-terracotta"
             >
-              Añadir al carrito
-            </Button>
-            <Button asChild variant="outline" className="h-12 border-cacao text-cacao hover:border-terracotta hover:bg-terracotta/10 hover:text-terracotta">
               <a
-                href={`${WHATSAPP_LINK}?text=${encodeURIComponent(
-                  `Hola, quiero consultar por ${product.name} en color ${selectedColor || product.colors[0] || "Único"}.`
-                )}`}
+                href={buildWhatsAppProductInquiryUrl(product.name, inquiryColor)}
                 target="_blank"
                 rel="noreferrer"
               >
