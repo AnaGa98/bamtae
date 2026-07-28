@@ -6,7 +6,6 @@ import Link from "next/link"
 import { ShoppingBag } from "lucide-react"
 import { formatPriceCop } from "@/lib/products"
 import { useCart } from "@/lib/cart-context"
-import { getColorHex } from "@/lib/color-swatches"
 
 interface ProductCardProps {
   id: string
@@ -213,33 +212,22 @@ export function ProductCard({
             ★ {rating.toFixed(1)} ({reviewCount})
           </p>
           <div className="flex items-center gap-2">
-            <p className={hasDiscount ? "text-wine font-medium" : "text-muted-foreground"}>
-              ${formatPriceCop(price)}
-            </p>
-            {hasDiscount && originalPrice && (
-              <p className="text-sm text-stone-400 line-through">
-                ${formatPriceCop(originalPrice)}
-              </p>
+            {price > 0 ? (
+              <>
+                <p className={hasDiscount ? "text-wine font-medium" : "text-muted-foreground"}>
+                  ${formatPriceCop(price)}
+                </p>
+                {hasDiscount && originalPrice && (
+                  <p className="text-sm text-stone-400 line-through">
+                    ${formatPriceCop(originalPrice)}
+                  </p>
+                )}
+              </>
+            ) : (
+              <p className="text-sm text-[#AF6D4E] font-medium">Precio por confirmar</p>
             )}
           </div>
         </Link>
-
-        <div className="flex items-center gap-1.5" aria-label={`Colores: ${colors.join(", ")}`}>
-          {colors.map((color) => {
-            const hex = getColorHex(color)
-            const isLight = ["#F5F5F5", "#D8B7A4", "#E8C4C4", "#D9A441"].includes(hex.toUpperCase())
-            return (
-              <span
-                key={color}
-                title={capitalizeColor(color)}
-                className={`inline-block w-3.5 h-3.5 rounded-full ${
-                  isLight ? "ring-1 ring-stone-300" : "ring-1 ring-black/10"
-                }`}
-                style={{ backgroundColor: hex }}
-              />
-            )
-          })}
-        </div>
 
         <div className="grid grid-cols-2 gap-2 mt-3">
           <Link

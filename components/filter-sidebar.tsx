@@ -95,43 +95,6 @@ function CheckboxFilter({ options, selected, onChange }: CheckboxFilterProps) {
   )
 }
 
-interface ColorFilterProps {
-  colors: { name: string; hex: string; value: string }[]
-  selected: string[]
-  onChange: (values: string[]) => void
-}
-
-function ColorFilter({ colors, selected, onChange }: ColorFilterProps) {
-  const toggleColor = (value: string) => {
-    if (selected.includes(value)) {
-      onChange(selected.filter((v) => v !== value))
-    } else {
-      onChange([...selected, value])
-    }
-  }
-
-  return (
-    <div className="flex flex-wrap gap-2">
-      {colors.map((color) => (
-        <button
-          key={color.value}
-          onClick={() => toggleColor(color.value)}
-          className={cn(
-            "w-8 h-8 rounded-full border-2 transition-all",
-            selected.includes(color.value)
-              ? "border-primary ring-2 ring-primary/30"
-              : "border-border hover:border-primary/50"
-          )}
-          style={{ backgroundColor: color.hex }}
-          title={color.name}
-        >
-          <span className="sr-only">{color.name}</span>
-        </button>
-      ))}
-    </div>
-  )
-}
-
 interface PriceRangeProps {
   selected: string | null
   onChange: (value: string | null) => void
@@ -180,47 +143,13 @@ interface FilterSidebarProps {
 }
 
 export function FilterSidebar({ className, onClose, isMobile }: FilterSidebarProps) {
-  const [selectedColors, setSelectedColors] = useState<string[]>([])
-  const [selectedFits, setSelectedFits] = useState<string[]>([])
-  const [selectedStyles, setSelectedStyles] = useState<string[]>([])
   const [selectedPrice, setSelectedPrice] = useState<string | null>(null)
 
-  const colors = [
-    { name: "Nude Beige", hex: "#D8B7A4", value: "nude" },
-    { name: "Mocha", hex: "#6B4F43", value: "mocha" },
-    { name: "Ivory", hex: "#F7F3EE", value: "ivory" },
-    { name: "Taupe", hex: "#B8A89C", value: "taupe" },
-    { name: "Charcoal", hex: "#1E1E1E", value: "charcoal" },
-    { name: "Blush", hex: "#E8C4C4", value: "blush" },
-  ]
-
-  const fits = [
-    { label: "Sculpting", value: "sculpting", count: 14 },
-    { label: "Regular", value: "regular", count: 8 },
-    { label: "Relaxed", value: "relaxed", count: 4 },
-  ]
-
-  const styles = [
-    { label: "Seamless", value: "seamless", count: 10 },
-    { label: "Ribbed", value: "ribbed", count: 8 },
-    { label: "Square Neck", value: "square-neck", count: 6 },
-    { label: "V-Neck", value: "v-neck", count: 4 },
-    { label: "Halter", value: "halter", count: 3 },
-    { label: "Long Sleeve", value: "long-sleeve", count: 5 },
-  ]
-
   const clearAllFilters = () => {
-    setSelectedColors([])
-    setSelectedFits([])
-    setSelectedStyles([])
     setSelectedPrice(null)
   }
 
-  const hasActiveFilters =
-    selectedColors.length > 0 ||
-    selectedFits.length > 0 ||
-    selectedStyles.length > 0 ||
-    selectedPrice !== null
+  const hasActiveFilters = selectedPrice !== null
 
   return (
     <div className={cn("bg-background", className)}>
@@ -246,30 +175,6 @@ export function FilterSidebar({ className, onClose, isMobile }: FilterSidebarPro
             </Button>
           </div>
         )}
-
-        <FilterSection title="Color">
-          <ColorFilter
-            colors={colors}
-            selected={selectedColors}
-            onChange={setSelectedColors}
-          />
-        </FilterSection>
-
-        <FilterSection title="Fit">
-          <CheckboxFilter
-            options={fits}
-            selected={selectedFits}
-            onChange={setSelectedFits}
-          />
-        </FilterSection>
-
-        <FilterSection title="Style">
-          <CheckboxFilter
-            options={styles}
-            selected={selectedStyles}
-            onChange={setSelectedStyles}
-          />
-        </FilterSection>
 
         <FilterSection title="Price">
           <PriceRange selected={selectedPrice} onChange={setSelectedPrice} />

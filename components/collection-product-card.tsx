@@ -137,31 +137,6 @@ export function CollectionProductCard({
 
       {/* Product info */}
       <div className="mt-4">
-        {/* Color options */}
-        <div className="flex items-center gap-1.5 mb-2">
-          {colors.slice(0, 5).map((color) => (
-            <button
-              key={color.value}
-              onClick={() => setSelectedColor(color)}
-              className={cn(
-                "w-4 h-4 rounded-full border transition-all",
-                selectedColor.value === color.value
-                  ? "border-primary ring-1 ring-primary/50"
-                  : "border-border/50 hover:border-primary/50"
-              )}
-              style={{ backgroundColor: color.hex }}
-              title={color.name}
-            >
-              <span className="sr-only">{color.name}</span>
-            </button>
-          ))}
-          {colors.length > 5 && (
-            <span className="text-xs text-muted-foreground ml-1">
-              +{colors.length - 5}
-            </span>
-          )}
-        </div>
-
         {/* Name */}
         <Link href={href}>
           <h3 className="text-sm font-medium text-foreground leading-snug hover:text-primary transition-colors line-clamp-2">

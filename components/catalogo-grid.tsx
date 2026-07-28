@@ -1,10 +1,18 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { Product } from "@/lib/products"
+import { X } from "lucide-react"
+import type { Product } from "@/lib/products"
 import { ProductCard } from "@/components/product-card"
-
-type SortOption = "novedades" | "precio-menor" | "precio-mayor"
+import {
+  EMPTY_CATALOG_FILTERS,
+  filterAndSortProducts,
+  getAvailablePriceOptions,
+  toggleFilterValue,
+  type CatalogFilters,
+  type PriceRangeId,
+  type SortOption,
+} from "@/lib/catalog-filters"
 
 interface CatalogoGridProps {
   locale: string
@@ -12,64 +20,53 @@ interface CatalogoGridProps {
   productImages: Record<string, string>
 }
 
-function toPriceRange(price: number): "0-50000" | "50001-80000" | "80001+" {
-  if (price <= 50000) return "0-50000"
-  if (price <= 80000) return "50001-80000"
-  return "80001+"
-}
-
 export function CatalogoGrid({ locale, products, productImages }: CatalogoGridProps) {
-  const [selectedColors, setSelectedColors] = useState<string[]>([])
-  const [selectedPrices, setSelectedPrices] = useState<string[]>([])
-  const [sortBy, setSortBy] = useState<SortOption>("novedades")
+  const [filters, setFilters] = useState<CatalogFilters>(EMPTY_CATALOG_FILTERS)
 
-  const availableColors = useMemo(
-    () => Array.from(new Set(products.flatMap((product) => product.colors))).sort(),
-    [products]
+  const priceOptions = useMemo(() => getAvailablePriceOptions(products), [products])
+
+  const filteredProducts = useMemo(
+    () => filterAndSortProducts(products, filters),
+    [products, filters]
   )
 
-  const filteredProducts = useMemo(() => {
-    const filtered = products.filter((product) => {
-      const matchColor =
-        selectedColors.length === 0 || product.colors.some((color) => selectedColors.includes(color))
-      const matchPrice =
-        selectedPrices.length === 0 || selectedPrices.includes(toPriceRange(product.price))
+  const active = filters.prices.length > 0
 
-      return matchColor && matchPrice
-    })
+  const setSortBy = (sortBy: SortOption) => {
+    setFilters((prev) => ({ ...prev, sortBy }))
+  }
 
-    return filtered.sort((a, b) => {
-      if (sortBy === "precio-menor") return a.price - b.price
-      if (sortBy === "precio-mayor") return b.price - a.price
+  const togglePrice = (value: PriceRangeId) => {
+    setFilters((prev) => ({
+      ...prev,
+      prices: toggleFilterValue(prev.prices, value),
+    }))
+  }
 
-      if (a.is_new === b.is_new) return a.name.localeCompare(b.name, "es")
-      return a.is_new ? -1 : 1
-    })
-  }, [products, selectedColors, selectedPrices, sortBy])
+  const clearFilters = () => {
+    setFilters((prev) => ({ ...EMPTY_CATALOG_FILTERS, sortBy: prev.sortBy }))
+  }
 
-  const toggleFilter = (
-    value: string,
-    selected: string[],
-    setter: (nextValues: string[]) => void
-  ) => {
-    if (selected.includes(value)) {
-      setter(selected.filter((item) => item !== value))
-      return
-    }
-    setter([...selected, value])
+  const removePrice = (value: PriceRangeId) => {
+    setFilters((prev) => ({
+      ...prev,
+      prices: prev.prices.filter((p) => p !== value),
+    }))
   }
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-6">
-        <p className="text-sm text-muted-foreground">
-          <span className="font-medium text-foreground">{filteredProducts.length}</span> productos
+        <p className="text-sm text-cacao/65">
+          <span className="font-medium text-cacao">{filteredProducts.length}</span>
+          {filteredProducts.length === 1 ? " producto" : " productos"}
+          {active ? " con estos filtros" : ""}
         </p>
-        <label className="text-sm flex items-center gap-2">
+        <label className="text-sm text-cacao flex items-center gap-2">
           Ordenar por:
           <select
-            className="border border-border rounded px-3 py-2 bg-background"
-            value={sortBy}
+            className="border border-[#C9A961]/35 rounded-md px-3 py-2 bg-white/80 text-cacao focus:outline-none focus:ring-2 focus:ring-mustard/40"
+            value={filters.sortBy}
             onChange={(event) => setSortBy(event.target.value as SortOption)}
           >
             <option value="novedades">Novedades</option>
@@ -79,68 +76,115 @@ export function CatalogoGrid({ locale, products, productImages }: CatalogoGridPr
         </label>
       </div>
 
-      <div className="grid lg:grid-cols-[280px_1fr] gap-8">
-        <aside className="border border-border rounded-lg p-4 h-fit">
-          <h3 className="font-medium mb-4">Filtros</h3>
+      {active && (
+        <div className="flex flex-wrap items-center gap-2 mb-6">
+          {filters.prices.map((priceId) => {
+            const range = priceOptions.find((r) => r.id === priceId)
+            return (
+              <button
+                key={`chip-price-${priceId}`}
+                type="button"
+                onClick={() => removePrice(priceId)}
+                className="inline-flex items-center gap-1.5 rounded-full border border-cacao/20 bg-[#F7F3EE] px-3 py-1 text-xs text-cacao hover:border-terracotta/40"
+              >
+                {range?.label ?? priceId}
+                <X className="h-3 w-3 opacity-60" />
+              </button>
+            )
+          })}
+          <button
+            type="button"
+            onClick={clearFilters}
+            className="text-xs uppercase tracking-wide text-[#AF6D4E] hover:text-terracotta"
+          >
+            Limpiar filtros
+          </button>
+        </div>
+      )}
 
-          <div className="space-y-5">
-            <div>
-              <p className="text-sm font-medium mb-2">Color</p>
-              <div className="flex flex-wrap gap-2">
-                {availableColors.map((color) => (
-                  <button
-                    key={color}
-                    onClick={() => toggleFilter(color, selectedColors, setSelectedColors)}
-                    className={`px-3 py-1.5 text-sm rounded border ${
-                      selectedColors.includes(color)
-                        ? "border-[#8B6F47] bg-[#F7F3EE]"
-                        : "border-border hover:border-[#8B6F47]"
+      <div className="grid lg:grid-cols-[280px_1fr] gap-8">
+        <aside className="border border-[#C9A961]/25 rounded-xl bg-white/70 p-5 h-fit shadow-[0_8px_24px_rgba(61,40,28,0.04)]">
+          <div className="flex items-center justify-between mb-5">
+            <h3 className="font-medium text-cacao">Filtros</h3>
+            {active && (
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="text-xs text-[#AF6D4E] hover:text-terracotta"
+              >
+                Limpiar
+              </button>
+            )}
+          </div>
+
+          <div>
+            <p className="text-sm font-medium text-cacao mb-3">Precio</p>
+            <div className="flex flex-col gap-2.5">
+              {priceOptions.map((range) => {
+                const checked = filters.prices.includes(range.id)
+                const disabled = range.count === 0
+                return (
+                  <label
+                    key={range.id}
+                    className={`text-sm flex items-center gap-2.5 ${
+                      disabled
+                        ? "text-cacao/35 cursor-not-allowed"
+                        : "text-cacao/80 cursor-pointer hover:text-cacao"
                     }`}
                   >
-                    {color}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <p className="text-sm font-medium mb-2">Precio</p>
-              <div className="flex flex-col gap-2">
-                {[
-                  { label: "Hasta $50.000", value: "0-50000" },
-                  { label: "$50.001 a $80.000", value: "50001-80000" },
-                  { label: "Mayor a $80.000", value: "80001+" },
-                ].map((range) => (
-                  <label key={range.value} className="text-sm flex items-center gap-2">
                     <input
                       type="checkbox"
-                      checked={selectedPrices.includes(range.value)}
-                      onChange={() => toggleFilter(range.value, selectedPrices, setSelectedPrices)}
+                      checked={checked}
+                      disabled={disabled}
+                      onChange={() => togglePrice(range.id)}
+                      className="h-4 w-4 rounded border-cacao/30 text-terracotta focus:ring-mustard/40 disabled:opacity-40"
                     />
-                    {range.label}
+                    <span className="flex-1">{range.label}</span>
+                    <span className="text-xs text-cacao/45">({range.count})</span>
                   </label>
-                ))}
-              </div>
+                )
+              })}
             </div>
+            <p className="mt-4 text-[11px] leading-relaxed text-cacao/45">
+              Los productos sin precio publicado no aparecen al filtrar por rango.
+            </p>
           </div>
         </aside>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              price={product.price}
-              originalPrice={product.compare_at_price}
-              image={productImages[product.id] ?? "/placeholder.svg"}
-              colors={product.colors}
-              badge={product.is_best_seller ? "Mas Vendido" : product.is_new ? "Nuevo" : undefined}
-              rating={"rating" in product ? Number(product.rating) : 4.8}
-              reviewCount={"reviewCount" in product ? Number(product.reviewCount) : 120}
-              href={`/${locale}/producto/${product.slug}`}
-            />
-          ))}
+        <div>
+          {filteredProducts.length === 0 ? (
+            <div className="rounded-xl border border-dashed border-[#C9A961]/40 bg-[#F7F3EE]/60 px-6 py-16 text-center">
+              <p className="font-serif text-xl text-cacao mb-2">No hay productos con estos filtros</p>
+              <p className="text-sm text-cacao/60 mb-5">Prueba otro rango de precio.</p>
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="inline-flex rounded-md bg-terracotta px-5 py-2.5 text-sm uppercase tracking-wider text-terracotta-foreground hover:bg-[#a84528]"
+              >
+                Limpiar filtros
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  id={product.id}
+                  name={product.name}
+                  price={product.price}
+                  originalPrice={product.compare_at_price}
+                  image={productImages[product.id] ?? "/placeholder.svg"}
+                  colors={product.colors}
+                  badge={
+                    product.is_best_seller ? "Mas Vendido" : product.is_new ? "Nuevo" : undefined
+                  }
+                  rating={"rating" in product ? Number(product.rating) : 4.8}
+                  reviewCount={"reviewCount" in product ? Number(product.reviewCount) : 120}
+                  href={`/${locale}/producto/${product.slug}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

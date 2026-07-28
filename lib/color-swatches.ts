@@ -16,6 +16,7 @@ const COLOR_HEX: Record<string, string> = {
   gris: "#8A8580",
   "verde esmeralda": "#2F6B57",
   "verde oliva": "#6B7A4A",
+  emerald: "#2F6B57",
 }
 
 function normalizeColorKey(color: string): string {
