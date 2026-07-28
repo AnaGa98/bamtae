@@ -15,23 +15,17 @@ export function Footer({ dict, locale }: FooterProps) {
     { label: "Bodys", href: `/${locale}/bodys` },
     { label: "Conjuntos", href: `/${locale}/conjuntos` },
     { label: "Vestidos", href: `/${locale}/vestidos` },
-    { label: "Blusas", href: `/${locale}/blusas` },
     { label: "Mas Vendidos", href: `/${locale}/mas-vendidos` },
   ]
 
   const helpLinks = [
-    { label: dict.footer.help.contact, href: `/${locale}/contact` },
-    { label: dict.footer.help.shipping, href: `/${locale}/shipping` },
-    { label: dict.footer.help.returns, href: `/${locale}/returns` },
-    { label: dict.footer.help.sizeGuide, href: `/${locale}/size-guide` },
     { label: dict.footer.help.faq, href: `/${locale}/faq` },
   ]
 
   const aboutLinks = [
     { label: dict.footer.about.ourStory, href: `/${locale}/sobre-nosotros` },
-    { label: dict.footer.about.sustainability, href: `/${locale}/sustainability` },
+    { label: "Blog", href: `/${locale}/blog` },
     { label: dict.footer.about.careers, href: `/${locale}/careers` },
-    { label: dict.footer.about.press, href: `/${locale}/press` },
   ]
 
   return (
