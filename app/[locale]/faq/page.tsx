@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer-i18n"
 import { getDictionary } from "@/lib/dictionaries"
 import type { Locale } from "@/lib/i18n"
 import { JsonLd, getFaqPageJsonLd } from "@/lib/seo/json-ld"
+import { buildPageAlternates, openGraphLocale } from "@/lib/seo/locale-metadata"
 
 export async function generateMetadata({
   params,
@@ -11,12 +12,23 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>
 }) {
   const { locale } = await params
+  const title = locale === "en" ? "FAQ | BAMTAE" : "Preguntas frecuentes | BAMTAE"
+  const description =
+    locale === "en"
+      ? "Answers about shipping, payments, sizing and returns at BAMTAE."
+      : "Respuestas sobre envíos, pagos, tallas, cambios y cuidado de prendas BAMTAE."
+
   return {
-    title: locale === "en" ? "FAQ | BAMTAE" : "Preguntas frecuentes | BAMTAE",
-    description:
-      locale === "en"
-        ? "Answers about shipping, payments, sizing and returns at BAMTAE."
-        : "Respuestas sobre envíos, pagos, tallas, cambios y cuidado de prendas BAMTAE.",
+    title,
+    description,
+    alternates: buildPageAlternates(locale, "/faq"),
+    openGraph: {
+      title,
+      description,
+      locale: openGraphLocale(locale),
+      type: "website",
+      url: `/${locale}/faq`,
+    },
   }
 }
 

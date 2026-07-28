@@ -4,6 +4,7 @@ import { CatalogoPage } from "@/components/catalogo-page"
 import { getProductImageMap } from "@/lib/catalogo-page-data"
 import { getBestSellers } from "@/lib/products"
 import type { Locale } from "@/lib/i18n"
+import { buildCatalogMetadata } from "@/lib/seo/catalog-metadata"
 
 export async function generateMetadata({
   params,
@@ -11,21 +12,17 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const description =
+  const esDescription =
     catalogoData.categories.find((category) => category.slug === "mas-vendidos")?.description ??
     "Productos mas vendidos BAMTAE."
 
-  return {
-    title: "Mas Vendidos | BAMTAE",
-    description,
-    alternates: {
-      canonical: `/${locale}/mas-vendidos`,
-      languages: {
-        es: "/es/mas-vendidos",
-        en: "/en/mas-vendidos",
-      },
+  return buildCatalogMetadata(locale, "mas-vendidos", {
+    es: { title: "Más Vendidos | BAMTAE", description: esDescription },
+    en: {
+      title: "Best Sellers | BAMTAE",
+      description: "BAMTAE best sellers loved by customers across Colombia.",
     },
-  }
+  })
 }
 
 export default async function MasVendidosPage({

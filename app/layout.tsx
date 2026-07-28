@@ -1,19 +1,22 @@
-import type { Metadata, Viewport } from 'next'
-import { Great_Vibes, Inter, Playfair_Display } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
-import { WhatsAppButton } from '@/components/whatsapp-button'
-import { CartProvider } from '@/lib/cart-context'
-import { JsonLd, getOrganizationJsonLd } from '@/lib/seo/json-ld'
-import './globals.css'
+import type { Metadata, Viewport } from "next"
+import { Great_Vibes, Inter, Playfair_Display } from "next/font/google"
+import { headers } from "next/headers"
+import { Analytics } from "@vercel/analytics/next"
+import { WhatsAppButton } from "@/components/whatsapp-button"
+import { CartProvider } from "@/lib/cart-context"
+import { JsonLd, getOrganizationJsonLd } from "@/lib/seo/json-ld"
+import { SITE_URL } from "@/lib/seo/locale-metadata"
+import { defaultLocale, locales, type Locale } from "@/lib/i18n"
+import "./globals.css"
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
-  variable: '--font-inter'
+  variable: "--font-inter",
 })
 
-const playfair = Playfair_Display({ 
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: '--font-playfair'
+  variable: "--font-playfair",
 })
 
 const greatVibes = Great_Vibes({
@@ -23,24 +26,40 @@ const greatVibes = Great_Vibes({
 })
 
 export const metadata: Metadata = {
-  title: 'BAMTAE | Esenciales Elevados para la Mujer Moderna',
-  description: 'Descubre BAMTAE - bodys esculturales premium, ropa deportiva y esenciales diseñados para mujeres que quieren sentirse seguras, esculpidas y elegantes.',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "BAMTAE",
+    template: "%s",
+  },
 }
 
 export const viewport: Viewport = {
-  themeColor: '#F7F3EE',
-  width: 'device-width',
+  themeColor: "#F7F3EE",
+  width: "device-width",
   initialScale: 1,
 }
 
-export default function RootLayout({
+async function resolveHtmlLang(): Promise<Locale> {
+  const headerStore = await headers()
+  const fromHeader = headerStore.get("x-bamtae-locale")
+  if (fromHeader && locales.includes(fromHeader as Locale)) {
+    return fromHeader as Locale
+  }
+  return defaultLocale
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const lang = await resolveHtmlLang()
+
   return (
-    <html lang="es" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} ${greatVibes.variable} font-sans antialiased`}>
+    <html lang={lang} suppressHydrationWarning>
+      <body
+        className={`${inter.variable} ${playfair.variable} ${greatVibes.variable} font-sans antialiased`}
+      >
         <JsonLd id="organization-jsonld" data={getOrganizationJsonLd()} />
         <CartProvider>
           {children}

@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Search, User, Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Menu, X } from "lucide-react"
 import { CartDrawer } from "@/components/cart-drawer"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import type { Dictionary } from "@/lib/dictionaries"
@@ -14,31 +13,46 @@ interface HeaderProps {
   locale: Locale
 }
 
-const ANNOUNCEMENT_MESSAGES = [
+const navLinkClass =
+  "relative uppercase text-sm tracking-wide text-[#3D2817] transition-colors hover:text-terracotta after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-terracotta after:transition-transform after:duration-300 hover:after:scale-x-100"
+
+function getPrimaryNavLinks(locale: Locale) {
+  const isEn = locale === "en"
+  return [
+    { label: isEn ? "New In" : "Novedades", href: "novedades" },
+    { label: "Bodys", href: "bodys" },
+    { label: isEn ? "Sets" : "Conjuntos", href: "conjuntos" },
+    { label: isEn ? "Dresses" : "Vestidos", href: "vestidos" },
+  ] as const
+}
+
+function getSecondaryNavLinks(locale: Locale) {
+  const isEn = locale === "en"
+  return [
+    { label: isEn ? "Best Sellers" : "Mas Vendidos", href: "mas-vendidos" },
+    { label: isEn ? "Sale" : "Ofertas", href: "ofertas" },
+    { label: isEn ? "About Us" : "Sobre Nosotros", href: "sobre-nosotros" },
+    { label: "Blog", href: "blog" },
+  ] as const
+}
+
+const ANNOUNCEMENT_MESSAGES_ES = [
   { icon: "🚚", text: "Envío gratis en pedidos sobre $500.000" },
   { icon: "💚", text: "Cambios fáciles en 8 días hábiles" },
   { icon: "📍", text: "Diseñado y hecho en Medellín, Colombia" },
   { icon: "💳", text: "Contraentrega disponible en Medellín y Área Metropolitana" },
 ] as const
 
-const primaryNavLinks = [
-  { label: "Novedades", href: "novedades" },
-  { label: "Bodys", href: "bodys" },
-  { label: "Conjuntos", href: "conjuntos" },
-  { label: "Vestidos", href: "vestidos" },
+const ANNOUNCEMENT_MESSAGES_EN = [
+  { icon: "🚚", text: "Free shipping on orders over $500,000 COP" },
+  { icon: "💚", text: "Easy exchanges within 8 business days" },
+  { icon: "📍", text: "Designed and made in Medellín, Colombia" },
+  { icon: "💳", text: "Cash on delivery available in Medellín metro area" },
 ] as const
 
-const secondaryNavLinks = [
-  { label: "Mas Vendidos", href: "mas-vendidos" },
-  { label: "Ofertas", href: "ofertas" },
-  { label: "Sobre Nosotros", href: "sobre-nosotros" },
-  { label: "Blog", href: "blog" },
-] as const
-
-const navLinkClass =
-  "relative uppercase text-sm tracking-wide text-[#3D2817] transition-colors hover:text-terracotta after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-terracotta after:transition-transform after:duration-300 hover:after:scale-x-100"
-
-export function AnnouncementBar() {
+export function AnnouncementBar({ locale = "es" }: { locale?: Locale }) {
+  const messages =
+    locale === "en" ? ANNOUNCEMENT_MESSAGES_EN : ANNOUNCEMENT_MESSAGES_ES
   const [index, setIndex] = useState(0)
   const [visible, setVisible] = useState(true)
   const [paused, setPaused] = useState(false)
@@ -57,14 +71,14 @@ export function AnnouncementBar() {
     if (visible) return
 
     const timeout = setTimeout(() => {
-      setIndex((current) => (current + 1) % ANNOUNCEMENT_MESSAGES.length)
+      setIndex((current) => (current + 1) % messages.length)
       setVisible(true)
     }, 400)
 
     return () => clearTimeout(timeout)
-  }, [visible])
+  }, [visible, messages.length])
 
-  const message = ANNOUNCEMENT_MESSAGES[index]
+  const message = messages[index]
 
   return (
     <div
@@ -88,10 +102,12 @@ export function AnnouncementBar() {
 
 export function Header({ dict, locale }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const primaryNavLinks = getPrimaryNavLinks(locale)
+  const secondaryNavLinks = getSecondaryNavLinks(locale)
 
   return (
     <>
-      <AnnouncementBar />
+      <AnnouncementBar locale={locale} />
 
       <div className="sticky top-0 z-50">
         {/* Barra superior cream */}
@@ -102,7 +118,7 @@ export function Header({ dict, locale }: HeaderProps) {
                 <button
                   className="lg:hidden p-2 -ml-2"
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  aria-label="Abrir menú"
+                  aria-label={locale === "en" ? "Open menu" : "Abrir menú"}
                 >
                   {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                 </button>
@@ -128,14 +144,6 @@ export function Header({ dict, locale }: HeaderProps) {
               </nav>
 
               <div className="flex items-center gap-1 sm:gap-2">
-                <Button variant="ghost" size="icon" className="w-9 h-9">
-                  <Search className="w-5 h-5" />
-                  <span className="sr-only">{dict.nav.search}</span>
-                </Button>
-                <Button variant="ghost" size="icon" className="w-9 h-9">
-                  <User className="w-5 h-5" />
-                  <span className="sr-only">{dict.nav.account}</span>
-                </Button>
                 <LanguageSwitcher currentLocale={locale} />
                 <CartDrawer />
               </div>

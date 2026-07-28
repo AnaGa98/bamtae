@@ -7,6 +7,10 @@ import type { Locale } from "@/lib/i18n"
 import { getAllProducts, getProductBySlug } from "@/lib/products"
 import { getPrimaryProductImage, getProductImages } from "@/lib/product-images"
 import { JsonLd, getProductJsonLd } from "@/lib/seo/json-ld"
+import {
+  buildPageAlternates,
+  openGraphLocale,
+} from "@/lib/seo/locale-metadata"
 
 export async function generateStaticParams() {
   return getAllProducts().map((product) => ({
@@ -19,18 +23,29 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: Locale; slug: string }>
 }) {
-  const { slug } = await params
+  const { locale, slug } = await params
   const product = getProductBySlug(slug)
 
   if (!product) {
     return {
-      title: "Producto no encontrado | BAMTAE",
+      title: locale === "en" ? "Product not found | BAMTAE" : "Producto no encontrado | BAMTAE",
     }
   }
 
+  const title = `${product.name} | BAMTAE`
+  const description = product.description
+
   return {
-    title: `${product.name} | BAMTAE`,
-    description: product.description,
+    title,
+    description,
+    alternates: buildPageAlternates(locale, `/producto/${slug}`),
+    openGraph: {
+      title,
+      description,
+      locale: openGraphLocale(locale),
+      type: "website",
+      url: `/${locale}/producto/${slug}`,
+    },
   }
 }
 

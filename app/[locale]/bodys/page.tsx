@@ -4,28 +4,26 @@ import { CatalogoPage } from "@/components/catalogo-page"
 import { getProductImageMap } from "@/lib/catalogo-page-data"
 import { getProductsByCategory } from "@/lib/products"
 import type { Locale } from "@/lib/i18n"
+import { buildCatalogMetadata } from "@/lib/seo/catalog-metadata"
 
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: Promise<{ locale: Locale }> 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const description =
+  const esDescription =
     catalogoData.categories.find((category) => category.slug === "bodys")?.description ??
     "Coleccion de Bodys BAMTAE."
 
-  return {
-    title: "Bodys | BAMTAE",
-    description,
-    alternates: {
-      canonical: `/${locale}/bodys`,
-      languages: {
-        es: "/es/bodys",
-        en: "/en/bodys",
-      },
+  return buildCatalogMetadata(locale, "bodys", {
+    es: { title: "Bodys | BAMTAE", description: esDescription },
+    en: {
+      title: "Bodys | BAMTAE",
+      description:
+        "BAMTAE sculpting bodys with premium fabrics, designed for confidence and all-day comfort.",
     },
-  }
+  })
 }
 
 export default async function BodysPage({ 

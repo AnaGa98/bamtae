@@ -4,6 +4,7 @@ import { CatalogoPage } from "@/components/catalogo-page"
 import { getProductImageMap } from "@/lib/catalogo-page-data"
 import { getNewArrivals } from "@/lib/products"
 import type { Locale } from "@/lib/i18n"
+import { buildCatalogMetadata } from "@/lib/seo/catalog-metadata"
 
 export async function generateMetadata({
   params,
@@ -11,21 +12,18 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const description =
+  const esDescription =
     catalogoData.categories.find((category) => category.slug === "novedades")?.description ??
     "Novedades BAMTAE."
 
-  return {
-    title: "Novedades | BAMTAE",
-    description,
-    alternates: {
-      canonical: `/${locale}/novedades`,
-      languages: {
-        es: "/es/novedades",
-        en: "/en/novedades",
-      },
+  return buildCatalogMetadata(locale, "novedades", {
+    es: { title: "Novedades | BAMTAE", description: esDescription },
+    en: {
+      title: "New In | BAMTAE",
+      description:
+        "Discover BAMTAE new arrivals: sculpting bodys and elevated essentials from Medellín.",
     },
-  }
+  })
 }
 
 export default async function NovedadesPage({

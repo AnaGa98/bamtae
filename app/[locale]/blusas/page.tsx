@@ -4,6 +4,7 @@ import { CatalogoPage } from "@/components/catalogo-page"
 import { getProductImageMap } from "@/lib/catalogo-page-data"
 import { getProductsByCategory } from "@/lib/products"
 import type { Locale } from "@/lib/i18n"
+import { buildCatalogMetadata } from "@/lib/seo/catalog-metadata"
 
 export async function generateMetadata({
   params,
@@ -11,21 +12,17 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const description =
+  const esDescription =
     catalogoData.categories.find((category) => category.slug === "blusas")?.description ??
     "Coleccion de Blusas BAMTAE."
 
-  return {
-    title: "Blusas | BAMTAE",
-    description,
-    alternates: {
-      canonical: `/${locale}/blusas`,
-      languages: {
-        es: "/es/blusas",
-        en: "/en/blusas",
-      },
+  return buildCatalogMetadata(locale, "blusas", {
+    es: { title: "Blusas | BAMTAE", description: esDescription },
+    en: {
+      title: "Tops | BAMTAE",
+      description: "BAMTAE tops and elevated everyday pieces.",
     },
-  }
+  })
 }
 
 export default async function BlusasPage({

@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer-i18n"
 import { getDictionary } from "@/lib/dictionaries"
 import { formatBlogDate, getAllBlogPosts } from "@/lib/blog"
 import type { Locale } from "@/lib/i18n"
+import { buildPageAlternates, openGraphLocale } from "@/lib/seo/locale-metadata"
 
 export async function generateMetadata({
   params,
@@ -12,12 +13,23 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>
 }) {
   const { locale } = await params
+  const title = "Blog | BAMTAE"
+  const description =
+    locale === "en"
+      ? "Style guides, fit tips and Medellín inspiration from BAMTAE."
+      : "Guías de estilo, tallas e inspiración desde Medellín, el blog de BAMTAE."
+
   return {
-    title: locale === "en" ? "Blog | BAMTAE" : "Blog | BAMTAE",
-    description:
-      locale === "en"
-        ? "Style guides, fit tips and Medellín inspiration from BAMTAE."
-        : "Guías de estilo, tallas e inspiración desde Medellín, el blog de BAMTAE.",
+    title,
+    description,
+    alternates: buildPageAlternates(locale, "/blog"),
+    openGraph: {
+      title,
+      description,
+      locale: openGraphLocale(locale),
+      type: "website",
+      url: `/${locale}/blog`,
+    },
   }
 }
 

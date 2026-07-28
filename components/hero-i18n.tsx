@@ -9,16 +9,23 @@ interface HeroProps {
   locale: Locale
 }
 
-/** Placeholder social proof — update when real customer/review totals are available. */
 const SOCIAL_PROOF = {
-  customersLabel: "+5.000 mujeres en Colombia ya confían en BAMTAE",
-  rating: 4.8,
-}
+  es: {
+    customersLabel: "+5.000 mujeres en Colombia ya confían en BAMTAE",
+    rating: 4.8,
+  },
+  en: {
+    customersLabel: "+5,000 women in Colombia already trust BAMTAE",
+    rating: 4.8,
+  },
+} as const
 
 export function Hero({ locale }: HeroProps) {
+  const proof = SOCIAL_PROOF[locale]
+  const isEn = locale === "en"
+
   return (
     <section className="relative min-h-[70vh] lg:min-h-[82vh] overflow-hidden">
-      {/* Cream → soft peach atmosphere (reference composition) */}
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
@@ -32,23 +39,35 @@ export function Hero({ locale }: HeroProps) {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 xl:gap-12 items-center">
           <div className="order-1 max-w-xl hero-enter" style={{ ["--hero-delay" as string]: "80ms" }}>
             <p className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-[#AF6D4E] mb-5">
-              NUEVA COLECCIÓN
+              {isEn ? "NEW COLLECTION" : "NUEVA COLECCIÓN"}
             </p>
 
             <h1 className="font-serif font-medium text-[2.15rem] sm:text-5xl lg:text-[3.35rem] text-cacao leading-[1.12] mb-6 text-balance">
-              Bodys esculturales que realzan tu figura.{" "}
-              <span className="font-[family-name:var(--font-script)] text-terracotta italic font-normal text-[1.15em] leading-none px-0.5">
-                Esculpe
-              </span>{" "}
-              tu confianza.
+              {isEn ? (
+                <>
+                  Sculpting bodys that enhance your figure.{" "}
+                  <span className="font-[family-name:var(--font-script)] text-terracotta italic font-normal text-[1.15em] leading-none px-0.5">
+                    Sculpt
+                  </span>{" "}
+                  your confidence.
+                </>
+              ) : (
+                <>
+                  Bodys esculturales que realzan tu figura.{" "}
+                  <span className="font-[family-name:var(--font-script)] text-terracotta italic font-normal text-[1.15em] leading-none px-0.5">
+                    Esculpe
+                  </span>{" "}
+                  tu confianza.
+                </>
+              )}
             </h1>
 
             <p className="text-[15px] md:text-base text-cacao/70 leading-relaxed max-w-md mb-6">
-              Nuestros bodys de lujo realzan tu silueta y te acompañan sin esfuerzo del día a
-              la noche. Encuentra tu ajuste perfecto.
+              {isEn
+                ? "Our luxury bodys enhance your silhouette and take you effortlessly from day to night. Find your perfect fit."
+                : "Nuestros bodys de lujo realzan tu silueta y te acompañan sin esfuerzo del día a la noche. Encuentra tu ajuste perfecto."}
             </p>
 
-            {/* Placeholder: replace rating/customer count with real metrics when available */}
             <p
               className="flex flex-wrap items-center gap-2 text-sm text-cacao mb-9"
               title="Placeholder — actualizar con número real de clientas/reseñas"
@@ -58,16 +77,16 @@ export function Hero({ locale }: HeroProps) {
                   <Star
                     key={star}
                     className={`w-3.5 h-3.5 ${
-                      star <= Math.floor(SOCIAL_PROOF.rating)
+                      star <= Math.floor(proof.rating)
                         ? "fill-current"
                         : "fill-mustard/30 text-mustard/40"
                     }`}
                   />
                 ))}
               </span>
-              <span className="font-medium">{SOCIAL_PROOF.rating}</span>
+              <span className="font-medium">{proof.rating}</span>
               <span className="text-cacao/40">·</span>
-              <span className="text-cacao/80">{SOCIAL_PROOF.customersLabel}</span>
+              <span className="text-cacao/80">{proof.customersLabel}</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -75,14 +94,14 @@ export function Hero({ locale }: HeroProps) {
                 href={`/${locale}/novedades`}
                 className="inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 bg-terracotta text-terracotta-foreground text-sm uppercase tracking-wider font-medium transition-colors hover:bg-[#a84528]"
               >
-                VER COLECCIÓN
+                {isEn ? "SHOP COLLECTION" : "VER COLECCIÓN"}
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
               <Link
                 href={`/${locale}/mas-vendidos`}
                 className="inline-flex items-center justify-center rounded-md px-8 py-3.5 bg-transparent border border-cacao/70 text-cacao text-sm uppercase tracking-wider font-medium transition-colors hover:border-terracotta hover:bg-terracotta/10 hover:text-terracotta"
               >
-                MÁS VENDIDOS
+                {isEn ? "BEST SELLERS" : "MÁS VENDIDOS"}
               </Link>
             </div>
           </div>

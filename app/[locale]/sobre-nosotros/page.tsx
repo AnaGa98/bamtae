@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button"
 import { ScrollReveal, REVEAL_STAGGER_MS } from "@/components/scroll-reveal"
 import { getDictionary } from "@/lib/dictionaries"
 import type { Locale } from "@/lib/i18n"
+import { buildPageAlternates, openGraphLocale } from "@/lib/seo/locale-metadata"
 
 export async function generateMetadata({
   params,
@@ -18,12 +19,23 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>
 }) {
   const { locale } = await params
+  const title = locale === "en" ? "About Us | BAMTAE" : "Sobre Nosotros | BAMTAE"
+  const description =
+    locale === "en"
+      ? "Family-made in Medellín. BAMTAE designs sculpting pieces so every woman feels confident in her own skin."
+      : "Hecho en familia en Medellín. BAMTAE diseña prendas que esculpen para que cada mujer se sienta segura en su propia piel."
+
   return {
-    title: locale === "en" ? "About Us | BAMTAE" : "Sobre Nosotros | BAMTAE",
-    description:
-      locale === "en"
-        ? "Family-made in Medellín. BAMTAE designs sculpting pieces so every woman feels confident in her own skin."
-        : "Hecho en familia en Medellín. BAMTAE diseña prendas que esculpen para que cada mujer se sienta segura en su propia piel.",
+    title,
+    description,
+    alternates: buildPageAlternates(locale, "/sobre-nosotros"),
+    openGraph: {
+      title,
+      description,
+      locale: openGraphLocale(locale),
+      type: "website",
+      url: `/${locale}/sobre-nosotros`,
+    },
   }
 }
 

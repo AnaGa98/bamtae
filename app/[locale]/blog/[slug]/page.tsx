@@ -13,6 +13,10 @@ import {
   getBlogSlugs,
 } from "@/lib/blog"
 import { JsonLd, getBlogPostingJsonLd } from "@/lib/seo/json-ld"
+import {
+  buildPageAlternates,
+  openGraphLocale,
+} from "@/lib/seo/locale-metadata"
 import type { Locale } from "@/lib/i18n"
 
 export async function generateStaticParams() {
@@ -24,7 +28,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: Locale; slug: string }>
 }) {
-  const { slug } = await params
+  const { locale, slug } = await params
   const post = getBlogPost(slug)
   if (!post) return { title: "Blog | BAMTAE" }
 
@@ -32,12 +36,15 @@ export async function generateMetadata({
     title: post.metaTitle,
     description: post.metaDescription,
     keywords: post.keyword,
+    alternates: buildPageAlternates(locale, `/blog/${slug}`),
     openGraph: {
       title: post.metaTitle,
       description: post.metaDescription,
       type: "article",
       publishedTime: post.date,
+      locale: openGraphLocale(locale),
       images: [{ url: post.image, alt: post.imageAlt }],
+      url: `/${locale}/blog/${slug}`,
     },
   }
 }

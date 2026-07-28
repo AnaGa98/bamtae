@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer-i18n"
 import { CareersForm } from "@/components/careers-form"
 import { getDictionary } from "@/lib/dictionaries"
 import type { Locale } from "@/lib/i18n"
+import { buildPageAlternates, openGraphLocale } from "@/lib/seo/locale-metadata"
 
 export async function generateMetadata({
   params,
@@ -10,13 +11,24 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale }>
 }) {
   const { locale } = await params
+  const title =
+    locale === "en" ? "Work with us | BAMTAE" : "Trabaja con Nosotros | BAMTAE"
+  const description =
+    locale === "en"
+      ? "Join the BAMTAE family workshop in Medellín. Tell us who you are and which machines you use."
+      : "Únete al taller familiar de BAMTAE en Medellín. Cuéntanos quién eres y qué máquinas sabes usar."
+
   return {
-    title:
-      locale === "en" ? "Work with us | BAMTAE" : "Trabaja con Nosotros | BAMTAE",
-    description:
-      locale === "en"
-        ? "Join the BAMTAE family workshop in Medellín. Tell us who you are and which machines you use."
-        : "Únete al taller familiar de BAMTAE en Medellín. Cuéntanos quién eres y qué máquinas sabes usar.",
+    title,
+    description,
+    alternates: buildPageAlternates(locale, "/careers"),
+    openGraph: {
+      title,
+      description,
+      locale: openGraphLocale(locale),
+      type: "website",
+      url: `/${locale}/careers`,
+    },
   }
 }
 

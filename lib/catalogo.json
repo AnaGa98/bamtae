@@ -1418,10 +1418,6 @@
       "section": "Producto y cuidado",
       "items": [
         {
-          "q": "¿De qué material están hechos los bodys?",
-          "a": "[Completar con la composición real de la tela, ej. Nylon-spandex de compresión suave]"
-        },
-        {
           "q": "¿Cómo debo lavar mis prendas?",
           "a": "Lavado a mano o en máquina con ciclo delicado, agua fría, sin secadora, para conservar la compresión y elasticidad de la tela."
         }

@@ -10,47 +10,61 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import type { Locale } from "@/lib/i18n"
+import { locales, type Locale } from "@/lib/i18n"
+import { localizedPath, stripLocalePrefix } from "@/lib/seo/locale-metadata"
 
 interface LanguageSwitcherProps {
   currentLocale: Locale
 }
 
+const LANGUAGE_LABELS: Record<Locale, { label: string; short: string }> = {
+  es: { label: "Español", short: "ES" },
+  en: { label: "English", short: "EN" },
+}
+
 export function LanguageSwitcher({ currentLocale }: LanguageSwitcherProps) {
   const pathname = usePathname()
-  
-  // Remove the current locale from pathname to get the base path
-  const pathnameWithoutLocale = pathname.replace(`/${currentLocale}`, '') || '/'
-  
-  const languages = [
-    { code: 'es' as const, label: 'Español', flag: '🇪🇸' },
-    { code: 'en' as const, label: 'English', flag: '🇺🇸' },
-  ]
+  const pathWithoutLocale = stripLocalePrefix(pathname)
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="w-9 h-9">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="w-9 h-9"
+          aria-label={
+            currentLocale === "es" ? "Cambiar idioma" : "Change language"
+          }
+        >
           <Globe className="w-5 h-5" />
           <span className="sr-only">
-            {currentLocale === 'es' ? 'Cambiar idioma' : 'Change language'}
+            {LANGUAGE_LABELS[currentLocale].short}
           </span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-[140px]">
-        {languages.map((lang) => (
-          <DropdownMenuItem key={lang.code} asChild>
-            <Link
-              href={`/${lang.code}${pathnameWithoutLocale}`}
-              className={`flex items-center gap-2 w-full ${
-                currentLocale === lang.code ? 'font-semibold bg-accent' : ''
-              }`}
-            >
-              <span>{lang.flag}</span>
-              <span>{lang.label}</span>
-            </Link>
-          </DropdownMenuItem>
-        ))}
+      <DropdownMenuContent align="end" className="min-w-[160px]">
+        {locales.map((code) => {
+          const href = localizedPath(code, pathWithoutLocale)
+          const isActive = currentLocale === code
+          return (
+            <DropdownMenuItem key={code} asChild>
+              <Link
+                href={href}
+                hrefLang={code}
+                lang={code}
+                className={`flex items-center justify-between w-full ${
+                  isActive ? "font-semibold bg-accent" : ""
+                }`}
+              >
+                <span>{LANGUAGE_LABELS[code].label}</span>
+                <span className="text-xs text-muted-foreground">
+                  {LANGUAGE_LABELS[code].short}
+                </span>
+              </Link>
+            </DropdownMenuItem>
+          )
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   )
