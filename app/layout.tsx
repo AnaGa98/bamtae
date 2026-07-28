@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Great_Vibes, Inter, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { WhatsAppButton } from '@/components/whatsapp-button'
 import { CartProvider } from '@/lib/cart-context'
@@ -14,6 +14,12 @@ const inter = Inter({
 const playfair = Playfair_Display({ 
   subsets: ["latin"],
   variable: '--font-playfair'
+})
+
+const greatVibes = Great_Vibes({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-script",
 })
 
 export const metadata: Metadata = {
@@ -34,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${playfair.variable} ${greatVibes.variable} font-sans antialiased`}>
         <JsonLd id="organization-jsonld" data={getOrganizationJsonLd()} />
         <CartProvider>
           {children}
