@@ -82,7 +82,7 @@ export const dictionary = {
   },
   social: {
     title: "Unete a la Comunidad",
-    subtitle: "Etiquetanos @bamtae para aparecer",
+    subtitle: "Etiquetanos @bamtaeforwomen para aparecer",
     followUs: "Siguenos en Instagram",
   },
   newsletter: {

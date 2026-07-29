@@ -75,20 +75,8 @@ export function ProductCard({
   const hasSecondary = Boolean(secondaryImage && secondaryAvailable)
   const showSecondary = hasSecondary && (isHovered || showSecond)
 
-  const handleImageTap = (event: React.MouseEvent) => {
-    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-      return
-    }
-
-    event.preventDefault()
-    event.stopPropagation()
-
-    if (hasSecondary) {
-      setShowSecond((current) => !current)
-    }
-  }
-
   const hasListedPrice = price > 0
+  const canOpenProduct = href !== "#"
 
   const addToCart = (color: string) => {
     if (!hasListedPrice) return
@@ -127,52 +115,82 @@ export function ProductCard({
   const imageTransitionClass =
     "absolute inset-0 object-cover transition-opacity duration-300 ease-in-out"
 
+  const imageBlock = (
+    <>
+      <Image
+        src={image}
+        alt={name}
+        fill
+        loading="lazy"
+        className={`${imageTransitionClass} ${showSecondary ? "opacity-0" : "opacity-100"}`}
+      />
+
+      {secondaryImage && secondaryAvailable && (
+        <Image
+          src={secondaryImage}
+          alt={`${name} - vista alternativa`}
+          fill
+          loading="lazy"
+          className={`${imageTransitionClass} ${showSecondary ? "opacity-100" : "opacity-0"}`}
+          onError={() => setSecondaryAvailable(false)}
+        />
+      )}
+
+      {badge && (
+        <span
+          className={`absolute top-3 left-3 z-10 px-3 py-1 text-xs tracking-wide uppercase rounded-full ${
+            badge === "Mas Vendido"
+              ? "bg-terracotta text-terracotta-foreground"
+              : "bg-mustard text-mustard-foreground"
+          }`}
+        >
+          {badge === "Mas Vendido" ? "Más vendido" : "Nuevo"}
+        </span>
+      )}
+
+      {hasDiscount && (
+        <span className="absolute top-3 right-3 z-10 px-2.5 py-1 text-xs tracking-wide font-medium rounded-full bg-wine text-wine-foreground">
+          -{discountPercent}%
+        </span>
+      )}
+    </>
+  )
+
   return (
     <div className="group relative">
       <div
-        className="relative aspect-[3/4] overflow-hidden rounded-lg bg-card mb-4 cursor-pointer md:cursor-default"
-        onClick={handleImageTap}
+        className="relative aspect-[3/4] overflow-hidden rounded-lg bg-card mb-4"
         onMouseEnter={() => {
           setIsHovered(true)
           setShowSecond(false)
         }}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Image
-          src={image}
-          alt={name}
-          fill
-          loading="lazy"
-          className={`${imageTransitionClass} ${showSecondary ? "opacity-0" : "opacity-100"}`}
-        />
-
-        {secondaryImage && secondaryAvailable && (
-          <Image
-            src={secondaryImage}
-            alt={`${name} - vista alternativa`}
-            fill
-            loading="lazy"
-            className={`${imageTransitionClass} ${showSecondary ? "opacity-100" : "opacity-0"}`}
-            onError={() => setSecondaryAvailable(false)}
-          />
-        )}
-
-        {badge && (
-          <span
-            className={`absolute top-3 left-3 z-10 px-3 py-1 text-xs tracking-wide uppercase rounded-full ${
-              badge === "Mas Vendido"
-                ? "bg-terracotta text-terracotta-foreground"
-                : "bg-mustard text-mustard-foreground"
-            }`}
+        {canOpenProduct ? (
+          <Link
+            href={href}
+            className="absolute inset-0 block"
+            aria-label={`Ver ${name}`}
           >
-            {badge === "Mas Vendido" ? "Más vendido" : "Nuevo"}
-          </span>
+            {imageBlock}
+          </Link>
+        ) : (
+          <div className="absolute inset-0">{imageBlock}</div>
         )}
 
-        {hasDiscount && (
-          <span className="absolute top-3 right-3 z-10 px-2.5 py-1 text-xs tracking-wide font-medium rounded-full bg-wine text-wine-foreground">
-            -{discountPercent}%
-          </span>
+        {hasSecondary && (
+          <button
+            type="button"
+            className="absolute bottom-2 right-2 z-10 rounded-full bg-white/90 px-2.5 py-1 text-[10px] uppercase tracking-wider text-cacao shadow-sm md:hidden"
+            onClick={(event) => {
+              event.preventDefault()
+              event.stopPropagation()
+              setShowSecond((current) => !current)
+            }}
+            aria-label={showSecond ? "Ver foto principal" : "Ver otra foto"}
+          >
+            {showSecond ? "1/2" : "2/2"}
+          </button>
         )}
 
         {showColorPicker && (
@@ -238,7 +256,7 @@ export function ProductCard({
         <div className="grid grid-cols-2 gap-2 mt-3">
           <Link
             href={href}
-            className="text-center py-2.5 text-xs uppercase tracking-wider border border-cacao text-cacao rounded transition-colors hover:border-terracotta hover:bg-terracotta/10 hover:text-terracotta"
+            className="inline-flex min-h-11 items-center justify-center text-center py-2.5 text-xs uppercase tracking-wider border border-cacao text-cacao rounded transition-colors hover:border-terracotta hover:bg-terracotta/10 hover:text-terracotta active:bg-terracotta/15"
           >
             <span className="sm:hidden">Ver</span>
             <span className="hidden sm:inline">Ver producto</span>
@@ -247,7 +265,7 @@ export function ProductCard({
             <button
               type="button"
               onClick={handleQuickAdd}
-              className="flex items-center justify-center gap-1.5 py-2.5 text-xs uppercase tracking-wider bg-terracotta text-terracotta-foreground rounded hover:bg-[#a84528] transition-colors"
+              className="inline-flex min-h-11 items-center justify-center gap-1.5 py-2.5 text-xs uppercase tracking-wider bg-terracotta text-terracotta-foreground rounded hover:bg-[#a84528] transition-colors active:bg-[#963d24]"
             >
               <ShoppingBag className="w-3.5 h-3.5" />
               Agregar
@@ -255,7 +273,7 @@ export function ProductCard({
           ) : (
             <Link
               href={href}
-              className="flex items-center justify-center gap-1.5 py-2.5 text-xs uppercase tracking-wider bg-terracotta text-terracotta-foreground rounded hover:bg-[#a84528] transition-colors"
+              className="inline-flex min-h-11 items-center justify-center gap-1.5 py-2.5 text-xs uppercase tracking-wider bg-terracotta text-terracotta-foreground rounded hover:bg-[#a84528] transition-colors active:bg-[#963d24]"
             >
               Consultar
             </Link>

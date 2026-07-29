@@ -148,6 +148,18 @@
   filter: drop-shadow(0 20px 36px rgb(61 40 28 / 0.12));
 }
 
+.hero-model-cutout-soft {
+  filter: drop-shadow(0 12px 24px rgb(61 40 28 / 0.06));
+}
+
+/* Mobile hero type: soft cream halo so lettering stays primary over watermark */
+.hero-type-glow {
+  text-shadow:
+    0 1px 0 rgb(248 244 238),
+    0 0 14px rgb(248 244 238 / 0.95),
+    0 0 28px rgb(248 244 238 / 0.75);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-blob-terracotta,
   .hero-blob-mustard,

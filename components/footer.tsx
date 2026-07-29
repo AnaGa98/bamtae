@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Instagram } from "lucide-react"
+import { Facebook, Instagram } from "lucide-react"
 
 const footerLinks = {
   shop: [
@@ -49,13 +49,22 @@ export function Footer() {
             </p>
             <div className="flex gap-4 mt-6">
               <Link
-                href="https://www.instagram.com/bamtae.98/"
+                href="https://www.instagram.com/bamtaeforwomen/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-background/70 hover:text-background transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
+              </Link>
+              <Link
+                href="https://www.facebook.com/profile.php?id=61588707071252"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-background/70 hover:text-background transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
               </Link>
             </div>
           </div>

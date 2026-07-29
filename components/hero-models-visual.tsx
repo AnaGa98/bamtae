@@ -38,7 +38,12 @@ const HERO_SLIDES = [
 
 const AUTOPLAY_MS = 5000
 
-export function HeroModelsVisual() {
+type HeroModelsVisualProps = {
+  /** Soft background mode for mobile hero — no blobs/arc/dots. */
+  watermark?: boolean
+}
+
+export function HeroModelsVisual({ watermark = false }: HeroModelsVisualProps) {
   const [active, setActive] = useState(0)
   const [paused, setPaused] = useState(false)
   const [reduceMotion, setReduceMotion] = useState(false)
@@ -84,7 +89,9 @@ export function HeroModelsVisual() {
 
   return (
     <div
-      className="relative w-full flex flex-col items-center justify-center min-h-[420px] lg:min-h-[600px] overflow-visible"
+      className={`relative w-full flex flex-col items-center justify-center overflow-visible ${
+        watermark ? "h-full min-h-0" : "min-h-[320px] lg:min-h-[600px]"
+      }`}
       onMouseEnter={() => {
         if (canHover) setPaused(true)
       }}
@@ -92,37 +99,43 @@ export function HeroModelsVisual() {
         if (canHover) setPaused(false)
       }}
     >
-      {/* Soft atmospheric washes behind the group */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-        aria-hidden="true"
-      >
-        <div className="hero-blob hero-blob-terracotta absolute left-[5%] top-[22%] h-[48%] w-[48%] rounded-full bg-[#E8C4A8]/35 blur-3xl" />
-        <div className="hero-blob hero-blob-mustard absolute right-[0%] bottom-[8%] h-[42%] w-[42%] rounded-full bg-[#F0D5B8]/40 blur-3xl" />
-      </div>
+      {!watermark && (
+        <>
+          <div
+            className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+            aria-hidden="true"
+          >
+            <div className="hero-blob hero-blob-terracotta absolute left-[5%] top-[22%] h-[48%] w-[48%] rounded-full bg-[#E8C4A8]/35 blur-3xl" />
+            <div className="hero-blob hero-blob-mustard absolute right-[0%] bottom-[8%] h-[42%] w-[42%] rounded-full bg-[#F0D5B8]/40 blur-3xl" />
+          </div>
 
-      {/* Thin editorial circle — matches reference frame behind models */}
-      <div
-        className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center"
-        aria-hidden="true"
-      >
-        <svg
-          className="hero-arc w-[88%] max-w-[520px] aspect-square opacity-70"
-          viewBox="0 0 400 400"
-          fill="none"
-        >
-          <circle
-            cx="200"
-            cy="200"
-            r="168"
-            stroke="#C9A961"
-            strokeWidth="1.25"
-            opacity="0.85"
-          />
-        </svg>
-      </div>
+          <div
+            className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center"
+            aria-hidden="true"
+          >
+            <svg
+              className="hero-arc w-[88%] max-w-[520px] aspect-square opacity-70"
+              viewBox="0 0 400 400"
+              fill="none"
+            >
+              <circle
+                cx="200"
+                cy="200"
+                r="168"
+                stroke="#C9A961"
+                strokeWidth="1.25"
+                opacity="0.85"
+              />
+            </svg>
+          </div>
+        </>
+      )}
 
-      <div className="relative z-10 w-full aspect-[4/5] max-h-[700px] overflow-visible">
+      <div
+        className={`relative z-10 w-full overflow-visible ${
+          watermark ? "h-full min-h-[480px] aspect-auto" : "aspect-[4/5] max-h-[700px]"
+        }`}
+      >
         {HERO_SLIDES.map((slide, index) => {
           const isActive = index === active
           return (
@@ -133,7 +146,13 @@ export function HeroModelsVisual() {
               }`}
               style={{
                 opacity: isActive ? 1 : 0,
-                transform: isActive ? "scale(1.36)" : "scale(1.38)",
+                transform: isActive
+                  ? watermark
+                    ? "scale(1.05)"
+                    : "scale(1.36)"
+                  : watermark
+                    ? "scale(1.08)"
+                    : "scale(1.38)",
                 zIndex: isActive ? 2 : 1,
                 pointerEvents: isActive ? "auto" : "none",
               }}
@@ -145,16 +164,18 @@ export function HeroModelsVisual() {
                 width={slide.width}
                 height={slide.height}
                 priority={index === 0 || index === 1}
-                className="hero-model-cutout w-full h-full object-contain object-bottom"
+                className={`w-full h-full object-contain object-bottom ${
+                  watermark ? "hero-model-cutout-soft max-h-none" : "hero-model-cutout"
+                }`}
               />
             </div>
           )
         })}
       </div>
 
-      {HERO_SLIDES.length > 1 && (
+      {!watermark && HERO_SLIDES.length > 1 && (
         <div
-          className="relative z-10 mt-4 flex items-center justify-center gap-2"
+          className="relative z-10 mt-4 hidden lg:flex items-center justify-center gap-2"
           role="tablist"
           aria-label="Imágenes del hero"
         >

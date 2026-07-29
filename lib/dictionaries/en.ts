@@ -84,7 +84,7 @@ export const dictionary: Dictionary = {
   },
   social: {
     title: "Join the Community",
-    subtitle: "Tag us @bamtae to be featured",
+    subtitle: "Tag us @bamtaeforwomen to be featured",
     followUs: "Follow Us on Instagram",
   },
   newsletter: {

@@ -29,7 +29,7 @@ export function Social() {
             Join the Community
           </h2>
           <p className="mt-4 text-cacao/60">
-            Tag us @bamtae.98 to be featured
+            Tag us @bamtaeforwomen to be featured
           </p>
         </ScrollReveal>
 
@@ -37,7 +37,7 @@ export function Social() {
           {socialImages.map((image, index) => (
             <ScrollReveal key={index} delay={index * REVEAL_STAGGER_MS}>
               <Link
-                href="https://www.instagram.com/bamtae.98/"
+                href="https://www.instagram.com/bamtaeforwomen/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative aspect-square overflow-hidden rounded-xl block ring-1 ring-[#C9A961]/25"
