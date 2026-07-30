@@ -53,6 +53,8 @@ export function CompleteTheLook() {
                 src={mainProduct.image}
                 alt={mainProduct.name}
                 fill
+                sizes="(max-width: 768px) 100vw, 25vw"
+                loading="lazy"
                 className="object-cover object-top"
               />
             </div>
@@ -73,6 +75,8 @@ export function CompleteTheLook() {
                   src={item.image}
                   alt={item.name}
                   fill
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  loading="lazy"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <button className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm py-2.5 text-xs text-[#1E1E1E] opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[#1E1E1E] hover:text-white">

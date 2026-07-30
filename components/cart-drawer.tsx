@@ -137,6 +137,8 @@ export function CartDrawer() {
                         src={item.image}
                         alt={item.name}
                         fill
+                        sizes="80px"
+                        loading="lazy"
                         className="object-cover"
                       />
                     </div>

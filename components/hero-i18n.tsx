@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowRight, Star } from "lucide-react"
 import type { Dictionary } from "@/lib/dictionaries"
 import type { Locale } from "@/lib/i18n"
-import { HeroModelsVisual } from "@/components/hero-models-visual"
+import { HeroModelsMount } from "@/components/hero-models-mount"
 
 interface HeroProps {
   dict: Dictionary
@@ -50,7 +50,7 @@ export function Hero({ locale }: HeroProps) {
           style={{ opacity: MOBILE_HERO_CAROUSEL_OPACITY }}
         >
           <div className="h-full w-full max-w-none">
-            <HeroModelsVisual watermark />
+            <HeroModelsMount variant="mobile" />
           </div>
         </div>
         <div
@@ -141,7 +141,7 @@ export function Hero({ locale }: HeroProps) {
             className="hidden lg:block order-2 lg:-mr-4 xl:-mr-8 hero-enter-right"
             style={{ ["--hero-delay" as string]: "220ms" }}
           >
-            <HeroModelsVisual />
+            <HeroModelsMount variant="desktop" />
           </div>
         </div>
       </div>

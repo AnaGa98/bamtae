@@ -70,6 +70,8 @@ export function CollectionProductCard({
             src={isHovered && hoverImage ? hoverImage : image}
             alt={name}
             fill
+            sizes="(max-width: 1023px) 50vw, 33vw"
+            loading="lazy"
             className="object-cover transition-all duration-500 ease-out group-hover:scale-105"
           />
         </Link>

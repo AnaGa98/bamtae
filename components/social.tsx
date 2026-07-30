@@ -46,6 +46,8 @@ export function Social() {
                   src={image.src}
                   alt={image.alt}
                   fill
+                  sizes="(max-width: 1023px) 50vw, 25vw"
+                  loading="lazy"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-cacao/0 group-hover:bg-cacao/35 transition-colors flex items-center justify-center">

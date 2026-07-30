@@ -121,17 +121,20 @@ export function ProductCard({
         src={image}
         alt={name}
         fill
+        sizes="(max-width: 1023px) 50vw, 25vw"
         loading="lazy"
         className={`${imageTransitionClass} ${showSecondary ? "opacity-0" : "opacity-100"}`}
       />
 
-      {secondaryImage && secondaryAvailable && (
+      {/* Only fetch hover/alt image when the user actually reveals it */}
+      {showSecondary && secondaryImage && secondaryAvailable && (
         <Image
           src={secondaryImage}
           alt={`${name} - vista alternativa`}
           fill
+          sizes="(max-width: 1023px) 50vw, 25vw"
           loading="lazy"
-          className={`${imageTransitionClass} ${showSecondary ? "opacity-100" : "opacity-0"}`}
+          className={`${imageTransitionClass} opacity-100`}
           onError={() => setSecondaryAvailable(false)}
         />
       )}

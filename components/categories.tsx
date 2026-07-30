@@ -76,6 +76,7 @@ export function Categories({ locale }: CategoriesProps) {
                   src={category.image}
                   alt={category.name}
                   fill
+                  sizes="(max-width: 1023px) 50vw, 25vw"
                   loading="lazy"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />

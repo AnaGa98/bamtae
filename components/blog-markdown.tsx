@@ -22,7 +22,7 @@ function renderInline(text: string, keyPrefix: string): InlineNode[] {
       nodes.push(
         <span key={`${keyPrefix}-img-${i}`} className="block my-8">
           <span className="relative block aspect-[16/10] overflow-hidden rounded-lg bg-[#F0E2D0]">
-            <Image src={src} alt={alt} fill className="object-cover" />
+            <Image src={src} alt={alt} fill sizes="(max-width: 768px) 100vw, 720px" loading="lazy" className="object-cover" />
           </span>
         </span>
       )

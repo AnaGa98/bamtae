@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import Image from "next/image"
 
 const HERO_SLIDES = [
@@ -47,6 +47,7 @@ export function HeroModelsVisual({ watermark = false }: HeroModelsVisualProps) {
   const [active, setActive] = useState(0)
   const [paused, setPaused] = useState(false)
   const [reduceMotion, setReduceMotion] = useState(false)
+  const [mountedSlides, setMountedSlides] = useState(() => new Set([0]))
   const pausedRef = useRef(false)
 
   useEffect(() => {
@@ -78,14 +79,22 @@ export function HeroModelsVisual({ watermark = false }: HeroModelsVisualProps) {
   }, [goNext])
 
   useEffect(() => {
-    const next = HERO_SLIDES[(active + 1) % HERO_SLIDES.length]
-    const img = new window.Image()
-    img.src = next.src
+    const next = (active + 1) % HERO_SLIDES.length
+    setMountedSlides((current) => {
+      if (current.has(active) && current.has(next)) return current
+      const nextSet = new Set(current)
+      nextSet.add(active)
+      nextSet.add(next)
+      return nextSet
+    })
   }, [active])
 
-  const canHover =
-    typeof window !== "undefined" &&
-    window.matchMedia("(hover: hover) and (pointer: fine)").matches
+  const canHover = useMemo(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches,
+    []
+  )
 
   return (
     <div
@@ -137,7 +146,11 @@ export function HeroModelsVisual({ watermark = false }: HeroModelsVisualProps) {
         }`}
       >
         {HERO_SLIDES.map((slide, index) => {
+          if (!mountedSlides.has(index)) return null
+
           const isActive = index === active
+          const isLcp = !watermark && index === 0
+
           return (
             <div
               key={slide.src}
@@ -163,7 +176,13 @@ export function HeroModelsVisual({ watermark = false }: HeroModelsVisualProps) {
                 alt={slide.alt}
                 width={slide.width}
                 height={slide.height}
-                priority={index === 0 || index === 1}
+                sizes={
+                  watermark
+                    ? "(max-width: 1023px) 90vw, 1px"
+                    : "(max-width: 1023px) 90vw, 560px"
+                }
+                priority={isLcp}
+                loading={isLcp ? undefined : "lazy"}
                 className={`w-full h-full object-contain object-bottom ${
                   watermark ? "hero-model-cutout-soft max-h-none" : "hero-model-cutout"
                 }`}

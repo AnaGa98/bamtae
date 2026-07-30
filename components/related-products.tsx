@@ -149,12 +149,16 @@ export function RelatedProducts() {
                   src={product.image}
                   alt={product.name}
                   fill
+                  sizes="(max-width: 1023px) 50vw, 280px"
+                  loading="lazy"
                   className="object-cover transition-opacity duration-500 group-hover:opacity-0"
                 />
                 <Image
                   src={product.hoverImage}
                   alt={`${product.name} alternate view`}
                   fill
+                  sizes="(max-width: 1023px) 50vw, 280px"
+                  loading="lazy"
                   className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 />
 

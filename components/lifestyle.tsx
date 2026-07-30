@@ -27,6 +27,7 @@ export function Lifestyle({ locale }: LifestyleProps) {
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-0479aO6hhL8ZHpq1oEDNwaVIJxjRbi.png"
                 alt="Estilo de vida BAMTAE"
                 fill
+                sizes="(max-width: 1023px) 100vw, 50vw"
                 loading="lazy"
                 className="object-cover object-top"
               />

@@ -38,6 +38,8 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
               src={image}
               alt={`${productName} view ${index + 1}`}
               fill
+              sizes="80px"
+              loading="lazy"
               className="object-cover"
             />
           </button>
@@ -50,6 +52,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
           src={images[selectedIndex]}
           alt={productName}
           fill
+          sizes="(max-width: 1023px) 100vw, 50vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           priority
         />

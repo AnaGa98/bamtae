@@ -122,6 +122,8 @@ export default function CartPage() {
                           src={item.image}
                           alt={item.name}
                           fill
+                          sizes="96px"
+                          loading="lazy"
                           className="object-cover object-top"
                         />
                       </div>

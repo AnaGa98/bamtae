@@ -57,7 +57,8 @@ export function ProductoDetalle({
                   src={galleryImages[activeImage] ?? galleryImages[0]}
                   alt={product.name}
                   fill
-                  loading="lazy"
+                  sizes="(max-width: 1023px) 100vw, 50vw"
+                  priority
                   className="object-cover"
                 />
               </div>
@@ -75,6 +76,7 @@ export function ProductoDetalle({
                       src={image}
                       alt={`${product.name} ${index + 1}`}
                       fill
+                      sizes="25vw"
                       loading="lazy"
                       className="object-cover"
                     />

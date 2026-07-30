@@ -40,6 +40,7 @@ export function Footer() {
                 alt="BAMTAE"
                 width={100}
                 height={50}
+                loading="lazy"
                 className="h-12 w-auto invert"
               />
             </Link>
