@@ -85,7 +85,7 @@
       "name": "Venus",
       "category": "bodys",
       "subcategory": "body",
-      "price": 75000,
+      "price": 85000,
       "compare_at_price": null,
       "description": "Body escultural de tirantes con detalle ruched que abraza tu silueta. Tela premium con caída elegante.",
       "colors": [
@@ -108,14 +108,15 @@
         "escultural"
       ],
       "rating": 4.8,
-      "reviewCount": 101
+      "reviewCount": 101,
+      "purchase_name": "Anastasia"
     },
     {
       "id": "star",
       "name": "Star",
       "category": "bodys",
       "subcategory": "body",
-      "price": 55000,
+      "price": 60000,
       "compare_at_price": null,
       "description": "Body con manga corta, corte clásico y fit favorecedor. Tu esencial diario.",
       "colors": [
@@ -136,14 +137,15 @@
         "básico"
       ],
       "rating": 4.8,
-      "reviewCount": 162
+      "reviewCount": 162,
+      "purchase_name": "Estrella manga C"
     },
     {
       "id": "alma",
       "name": "Alma",
       "category": "bodys",
       "subcategory": "body",
-      "price": 48000,
+      "price": 55000,
       "compare_at_price": null,
       "description": "Body básico con corte limpio y tela suave. Ideal para combinar con jeans o faldas.",
       "colors": [
@@ -162,14 +164,15 @@
         "básico"
       ],
       "rating": 4.8,
-      "reviewCount": 131
+      "reviewCount": 131,
+      "purchase_name": "Mafe"
     },
     {
       "id": "siena",
       "name": "Siena",
       "category": "bodys",
       "subcategory": "body",
-      "price": 60000,
+      "price": 70000,
       "compare_at_price": null,
       "description": "Body con detalles únicos y fit moldeador. Una pieza que destaca.",
       "colors": [
@@ -189,14 +192,15 @@
         "moldeador"
       ],
       "rating": 4.8,
-      "reviewCount": 158
+      "reviewCount": 158,
+      "purchase_name": "Cloe"
     },
     {
       "id": "lia",
       "name": "Lía",
       "category": "bodys",
       "subcategory": "body",
-      "price": 50000,
+      "price": 60000,
       "compare_at_price": null,
       "description": "Body con corte favorecedor y tela cómoda para todo el día.",
       "colors": [
@@ -215,14 +219,15 @@
         "body"
       ],
       "rating": 4.8,
-      "reviewCount": 120
+      "reviewCount": 120,
+      "purchase_name": "Sofía"
     },
     {
       "id": "aura",
       "name": "Aura",
       "category": "bodys",
       "subcategory": "body",
-      "price": 55000,
+      "price": 65000,
       "compare_at_price": null,
       "description": "Body con escote sofisticado que resalta tu cuello y hombros.",
       "colors": [
@@ -242,14 +247,15 @@
         "escote"
       ],
       "rating": 4.8,
-      "reviewCount": 145
+      "reviewCount": 145,
+      "purchase_name": "Isa"
     },
     {
       "id": "galaxy",
       "name": "Galaxy",
       "category": "bodys",
       "subcategory": "body",
-      "price": 58000,
+      "price": 65000,
       "compare_at_price": null,
       "description": "Body de manga larga con fit ajustado y tela elástica. Elegante y versátil.",
       "colors": [
@@ -269,14 +275,15 @@
         "manga larga"
       ],
       "rating": 4.8,
-      "reviewCount": 96
+      "reviewCount": 96,
+      "purchase_name": "Estrella manga L"
     },
     {
       "id": "curve",
       "name": "Curve",
       "category": "bodys",
       "subcategory": "body",
-      "price": 48000,
+      "price": 55000,
       "compare_at_price": null,
       "description": "Body strapless que abraza tus curvas. Perfecto para looks de noche.",
       "colors": [
@@ -295,14 +302,15 @@
         "strapless"
       ],
       "rating": 4.8,
-      "reviewCount": 89
+      "reviewCount": 89,
+      "purchase_name": "Extraple"
     },
     {
       "id": "rose",
       "name": "Rose",
       "category": "bodys",
       "subcategory": "body",
-      "price": 48000,
+      "price": 55000,
       "compare_at_price": null,
       "description": "Body delicado con detalles femeninos. Suave al tacto y favorecedor.",
       "colors": [
@@ -322,14 +330,15 @@
         "femenino"
       ],
       "rating": 4.8,
-      "reviewCount": 161
+      "reviewCount": 161,
+      "purchase_name": "Rosita"
     },
     {
       "id": "daisy",
       "name": "Daisy",
       "category": "bodys",
       "subcategory": "body",
-      "price": 38000,
+      "price": 45000,
       "compare_at_price": null,
       "description": "Body básico al mejor precio. Calidad premium en tu esencial diario.",
       "colors": [
@@ -349,14 +358,15 @@
         "básico"
       ],
       "rating": 4.8,
-      "reviewCount": 168
+      "reviewCount": 168,
+      "purchase_name": "Elena"
     },
     {
       "id": "bloom",
       "name": "Bloom",
       "category": "bodys",
       "subcategory": "body",
-      "price": 55000,
+      "price": 68000,
       "compare_at_price": null,
       "description": "Body con detalles florales o textura especial. Una pieza que florece.",
       "colors": [
@@ -376,14 +386,15 @@
         "femenino"
       ],
       "rating": 4.8,
-      "reviewCount": 167
+      "reviewCount": 167,
+      "purchase_name": "Emily"
     },
     {
       "id": "nube",
       "name": "Nube",
       "category": "bodys",
       "subcategory": "body",
-      "price": 48000,
+      "price": 65000,
       "compare_at_price": null,
       "description": "Body suave como una nube. Tela que se siente como segunda piel.",
       "colors": [
@@ -403,14 +414,15 @@
         "suave"
       ],
       "rating": 4.8,
-      "reviewCount": 146
+      "reviewCount": 146,
+      "purchase_name": "Danna"
     },
     {
       "id": "mia",
       "name": "Mía",
       "category": "bodys",
       "subcategory": "body",
-      "price": 50000,
+      "price": 68000,
       "compare_at_price": null,
       "description": "Body con personalidad. Corte favorecedor y diseño con carácter.",
       "colors": [
@@ -429,14 +441,15 @@
         "body"
       ],
       "rating": 4.8,
-      "reviewCount": 121
+      "reviewCount": 121,
+      "purchase_name": "Sindy"
     },
     {
       "id": "velvet",
       "name": "Velvet",
       "category": "vestidos",
       "subcategory": "vestido strapless",
-      "price": 55000,
+      "price": 68000,
       "compare_at_price": null,
       "description": "Vestido strapless con caída fluida y fit ceñido. Perfecto para una cita o evento.",
       "colors": [
@@ -457,14 +470,15 @@
         "evento"
       ],
       "rating": 4.8,
-      "reviewCount": 112
+      "reviewCount": 112,
+      "purchase_name": "Vestido extraple"
     },
     {
       "id": "icon",
       "name": "Icon",
       "category": "bodys",
       "subcategory": "body",
-      "price": 58000,
+      "price": 68000,
       "compare_at_price": null,
       "description": "Body cruzado con escote en V. Una pieza icónica para destacar.",
       "colors": [
@@ -485,14 +499,15 @@
         "cruzado"
       ],
       "rating": 4.8,
-      "reviewCount": 145
+      "reviewCount": 145,
+      "purchase_name": "Cruzado"
     },
     {
       "id": "honey",
       "name": "Honey",
       "category": "bodys",
       "subcategory": "body",
-      "price": 45000,
+      "price": 50000,
       "compare_at_price": null,
       "description": "Body dulce y favorecedor. Tu nuevo básico premium.",
       "colors": [
@@ -511,14 +526,15 @@
         "body"
       ],
       "rating": 4.8,
-      "reviewCount": 87
+      "reviewCount": 87,
+      "purchase_name": "Susan"
     },
     {
       "id": "soft",
       "name": "Soft",
       "category": "bodys",
       "subcategory": "body manga",
-      "price": 50000,
+      "price": 68000,
       "compare_at_price": null,
       "description": "Body de manga con fit suave y cómodo. Para el día a día con estilo.",
       "colors": [
@@ -538,16 +554,17 @@
         "manga"
       ],
       "rating": 4.8,
-      "reviewCount": 164
+      "reviewCount": 164,
+      "purchase_name": "Body de manga"
     },
     {
       "id": "nova",
       "name": "Nova",
       "category": "bodys",
       "subcategory": "croptop",
-      "price": 75000,
+      "price": 85000,
       "compare_at_price": null,
-      "description": "Croptop de diseño moderno. Pieza nueva, fresca y favorecedora.",
+      "description": "Nova: croptop de diseño moderno. Pieza nueva, fresca y favorecedora.",
       "colors": [
         "Negro",
         "Blanco",
@@ -566,14 +583,15 @@
         "statement"
       ],
       "rating": 4.8,
-      "reviewCount": 156
+      "reviewCount": 156,
+      "purchase_name": "Croptop"
     },
     {
       "id": "esmeralda-set",
       "name": "Esmeralda Set",
       "category": "conjuntos",
       "subcategory": "set dúo",
-      "price": 80000,
+      "price": 90000,
       "compare_at_price": null,
       "description": "Conjunto dúo en tonos esmeralda. Elegante, sofisticado y único.",
       "colors": [
@@ -594,16 +612,17 @@
         "esmeralda"
       ],
       "rating": 4.8,
-      "reviewCount": 139
+      "reviewCount": 139,
+      "purchase_name": "Dúo esmeralda"
     },
     {
-      "id": "hermoso-k",
-      "name": "Hermoso K",
+      "id": "elite",
+      "name": "Élite",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 70000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia:Hermoso K",
+      "description": "Élite: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -612,25 +631,26 @@
       "is_on_sale": false,
       "in_stock": true,
       "images": [
-        "/products/hermoso-k-1.jpg",
-        "/products/hermoso-k-2.jpg",
-        "/products/hermoso-k-3.jpg"
+        "/products/elite-1.jpg",
+        "/products/elite-2.jpg",
+        "/products/elite-3.jpg"
       ],
       "tags": [
         "body",
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 97
+      "reviewCount": 97,
+      "purchase_name": "Hermoso k"
     },
     {
-      "id": "body-angel",
-      "name": "Body Ángel",
+      "id": "celeste",
+      "name": "Celeste",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 65000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Body ángel",
+      "description": "Celeste: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -639,26 +659,27 @@
       "is_on_sale": false,
       "in_stock": true,
       "images": [
-        "/products/body-angel-1.jpg",
-        "/products/body-angel-2.jpg",
-        "/products/body-angel-3.jpg",
-        "/products/body-angel-4.jpg"
+        "/products/celeste-1.jpg",
+        "/products/celeste-2.jpg",
+        "/products/celeste-3.jpg",
+        "/products/celeste-4.jpg"
       ],
       "tags": [
         "body",
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 84
+      "reviewCount": 84,
+      "purchase_name": "Body ángel"
     },
     {
-      "id": "sasha-manga-corta",
-      "name": "Sasha Manga Corta",
+      "id": "zafira",
+      "name": "Zafira",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 65000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Sasha manga corta",
+      "description": "Zafira: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -667,25 +688,26 @@
       "is_on_sale": false,
       "in_stock": true,
       "images": [
-        "/products/sasha-manga-corta-1.jpg",
-        "/products/sasha-manga-corta-2.jpg",
-        "/products/sasha-manga-corta-3.jpg"
+        "/products/zafira-1.jpg",
+        "/products/zafira-2.jpg",
+        "/products/zafira-3.jpg"
       ],
       "tags": [
         "body",
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 131
+      "reviewCount": 131,
+      "purchase_name": "Sasha manga corta"
     },
     {
-      "id": "pamela",
-      "name": "Pamela",
+      "id": "aria",
+      "name": "Aria",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 65000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Pamela",
+      "description": "Aria: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -694,23 +716,24 @@
       "is_on_sale": false,
       "in_stock": true,
       "images": [
-        "/products/pamela-1.jpg"
+        "/products/aria-1.jpg"
       ],
       "tags": [
         "body",
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 164
+      "reviewCount": 164,
+      "purchase_name": "Pamela"
     },
     {
-      "id": "magaly",
-      "name": "Magaly",
+      "id": "aurora",
+      "name": "Aurora",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 55000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Magaly",
+      "description": "Aurora: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -719,24 +742,25 @@
       "is_on_sale": false,
       "in_stock": true,
       "images": [
-        "/products/magaly-1.jpg",
-        "/products/magaly-2.jpg"
+        "/products/aurora-1.jpg",
+        "/products/aurora-2.jpg"
       ],
       "tags": [
         "body",
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 85
+      "reviewCount": 85,
+      "purchase_name": "Magaly"
     },
     {
-      "id": "deysi",
-      "name": "Deysi",
+      "id": "perla",
+      "name": "Perla",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 65000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Deysi",
+      "description": "Perla: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -745,24 +769,25 @@
       "is_on_sale": false,
       "in_stock": true,
       "images": [
-        "/products/deysi-1.jpg",
-        "/products/deysi-2.jpg"
+        "/products/perla-1.jpg",
+        "/products/perla-2.jpg"
       ],
       "tags": [
         "body",
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 82
+      "reviewCount": 82,
+      "purchase_name": "Deysi"
     },
     {
-      "id": "mono",
-      "name": "Moño",
+      "id": "coquette",
+      "name": "Coquette",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 65000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Moño",
+      "description": "Coquette: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -771,23 +796,24 @@
       "is_on_sale": false,
       "in_stock": true,
       "images": [
-        "/products/mono-1.jpg"
+        "/products/coquette-1.jpg"
       ],
       "tags": [
         "body",
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 161
+      "reviewCount": 161,
+      "purchase_name": "Moño"
     },
     {
-      "id": "martina",
-      "name": "Martina",
+      "id": "naia",
+      "name": "Naia",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 65000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Martina",
+      "description": "Naia: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -796,24 +822,25 @@
       "is_on_sale": false,
       "in_stock": true,
       "images": [
-        "/products/martina-1.jpg",
-        "/products/martina-2.jpg"
+        "/products/naia-1.jpg",
+        "/products/naia-2.jpg"
       ],
       "tags": [
         "body",
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 108
+      "reviewCount": 108,
+      "purchase_name": "Martina"
     },
     {
-      "id": "body-ck",
-      "name": "Body Ck",
+      "id": "essential",
+      "name": "Essential",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 65000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Body CK",
+      "description": "Essential: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -822,24 +849,25 @@
       "is_on_sale": false,
       "in_stock": true,
       "images": [
-        "/products/body-ck-1.jpg",
-        "/products/body-ck-2.jpg"
+        "/products/essential-1.jpg",
+        "/products/essential-2.jpg"
       ],
       "tags": [
         "body",
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 131
+      "reviewCount": 131,
+      "purchase_name": "Body CK"
     },
     {
       "id": "atenea",
       "name": "Atenea",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 65000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Atenea",
+      "description": "Atenea: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -855,16 +883,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 162
+      "reviewCount": 162,
+      "purchase_name": "Body strapless"
     },
     {
       "id": "monaco-set",
       "name": "Mónaco Set",
       "category": "conjuntos",
       "subcategory": "conjunto",
-      "price": 0,
+      "price": 90000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Mónaco set",
+      "description": "Mónaco Set: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -880,16 +909,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 104
+      "reviewCount": 104,
+      "purchase_name": "Set michael"
     },
     {
       "id": "contour",
       "name": "Contour",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 55000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia:Contour",
+      "description": "Contour: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -905,16 +935,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 138
+      "reviewCount": 138,
+      "purchase_name": "Body ck"
     },
     {
       "id": "harmony-set",
       "name": "Harmony Set",
       "category": "conjuntos",
       "subcategory": "conjunto",
-      "price": 0,
+      "price": 45000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Harmony set",
+      "description": "Harmony Set: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -931,16 +962,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 143
+      "reviewCount": 143,
+      "purchase_name": "Body 2 piezas"
     },
     {
       "id": "urban-set",
       "name": "Urban Set",
       "category": "conjuntos",
       "subcategory": "conjunto",
-      "price": 0,
+      "price": 80000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Urban set",
+      "description": "Urban Set: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -956,16 +988,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 93
+      "reviewCount": 93,
+      "purchase_name": "Conjunto CK"
     },
     {
       "id": "adara-set",
       "name": "Adara Set",
       "category": "conjuntos",
       "subcategory": "conjunto",
-      "price": 0,
+      "price": 75000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Adara set",
+      "description": "Adara Set: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -983,16 +1016,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 152
+      "reviewCount": 152,
+      "purchase_name": "Set adara"
     },
     {
       "id": "noir-set",
       "name": "Noir Set",
       "category": "conjuntos",
       "subcategory": "conjunto",
-      "price": 0,
+      "price": 75000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Noir set",
+      "description": "Noir Set: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -1009,16 +1043,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 87
+      "reviewCount": 87,
+      "purchase_name": "Set Karl largerfeld"
     },
     {
       "id": "moon",
       "name": "Moon",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 60000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Moon",
+      "description": "Moon: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -1035,16 +1070,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 161
+      "reviewCount": 161,
+      "purchase_name": "Body celeste plus"
     },
     {
       "id": "empire-set",
       "name": "Empire Set",
       "category": "conjuntos",
       "subcategory": "conjunto",
-      "price": 0,
+      "price": 75000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Empire set",
+      "description": "Empire Set: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -1061,16 +1097,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 109
+      "reviewCount": 109,
+      "purchase_name": "Set Dsquared2"
     },
     {
       "id": "amelia-plus",
       "name": "Amelia Plus",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 78000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Amelia plus",
+      "description": "Amelia Plus: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -1090,16 +1127,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 114
+      "reviewCount": 114,
+      "purchase_name": "Body Paola plus"
     },
     {
       "id": "selene-plus",
       "name": "Selene Plus",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 78000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Selene plus",
+      "description": "Selene Plus: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -1117,16 +1155,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 133
+      "reviewCount": 133,
+      "purchase_name": "Body Susana plus"
     },
     {
       "id": "majestic-plus",
       "name": "Majestic Plus",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 75000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Majestic plus",
+      "description": "Majestic Plus: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -1143,16 +1182,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 165
+      "reviewCount": 165,
+      "purchase_name": "Body Mónica plus"
     },
     {
       "id": "prisma-set",
       "name": "Prisma Set",
       "category": "conjuntos",
       "subcategory": "conjunto",
-      "price": 0,
+      "price": 78000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Prisma set",
+      "description": "Prisma Set: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -1171,16 +1211,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 119
+      "reviewCount": 119,
+      "purchase_name": "Set calvin k"
     },
     {
       "id": "silhouette",
       "name": "Silhouette",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 65000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Silhouette",
+      "description": "Silhouette: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -1196,16 +1237,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 94
+      "reviewCount": 94,
+      "purchase_name": "Body calvin klein"
     },
     {
       "id": "milano-set",
       "name": "Milano Set",
       "category": "conjuntos",
       "subcategory": "conjunto",
-      "price": 0,
+      "price": 75000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Milano set",
+      "description": "Milano Set: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -1222,16 +1264,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 107
+      "reviewCount": 107,
+      "purchase_name": "Set dolce & gabana"
     },
     {
       "id": "nova-set",
       "name": "Nova Set",
       "category": "conjuntos",
       "subcategory": "conjunto",
-      "price": 0,
+      "price": 95000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Nova set",
+      "description": "Nova Set: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -1251,16 +1294,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 83
+      "reviewCount": 83,
+      "purchase_name": "Set calvin k"
     },
     {
       "id": "zen-set",
       "name": "Zen Set",
       "category": "conjuntos",
       "subcategory": "conjunto",
-      "price": 0,
+      "price": 95000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Zen set",
+      "description": "Zen Set: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -1278,16 +1322,17 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 160
+      "reviewCount": 160,
+      "purchase_name": "Set alo premium"
     },
     {
       "id": "empress-corset",
       "name": "Empress Corset",
       "category": "bodys",
       "subcategory": "body",
-      "price": 0,
+      "price": 85000,
       "compare_at_price": null,
-      "description": "Nombre y Referencia: Empress corset",
+      "description": "Empress Corset: diseño BAMTAE con fit favorecedor y acabado premium.",
       "colors": [
         "Negro"
       ],
@@ -1304,7 +1349,8 @@
         "nuevo"
       ],
       "rating": 4.8,
-      "reviewCount": 108
+      "reviewCount": 108,
+      "purchase_name": "Corset plus"
     }
   ],
   "testimonials": [

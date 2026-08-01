@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer-i18n"
 import { ProductoDetalle } from "@/components/producto-detalle"
 import { getDictionary } from "@/lib/dictionaries"
 import type { Locale } from "@/lib/i18n"
-import { getAllProducts, getProductBySlug } from "@/lib/products"
+import { getAllProductSlugs, getProductBySlug } from "@/lib/products"
 import { getPrimaryProductImage, getProductImages } from "@/lib/product-images"
 import { JsonLd, getProductJsonLd } from "@/lib/seo/json-ld"
 import {
@@ -13,8 +13,8 @@ import {
 } from "@/lib/seo/locale-metadata"
 
 export async function generateStaticParams() {
-  return getAllProducts().map((product) => ({
-    slug: product.slug,
+  return getAllProductSlugs().map((slug) => ({
+    slug,
   }))
 }
 
